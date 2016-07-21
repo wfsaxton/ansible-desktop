@@ -1,0 +1,37 @@
+# Install ruby-install
+#
+#
+---
+- name: Create working directory
+  file:
+    path: /usr/src
+    state: directory
+
+- name: Download ruby-install
+  get_url:
+    url: https://github.com/postmodern/ruby-install/archive/v{{ ruby_install_version }}.tar.gz
+    dest: /usr/src/ruby-install-{{ ruby_install_version }}.tar.gz
+# todo add when: not already installed
+  register: ruby_install_downloaded
+
+- name: Extract ruby-install
+  shell: tar -C /usr/src -xzvf /usr/src/ruby-install-{{ ruby_install_version }}.tar.gz
+  when: ruby_install_downloaded.changed
+  register: ruby_install_extracted
+
+- name: Install ruby-install
+  shell: cd /usr/src/ruby-install-{{ ruby_install_version }}/ && make install
+  when: ruby_install_extracted.changed
+  register: ruby_install_installed
+
+- name: Clean up ruby-install sources
+  shell: rm -rf /usr/src/ruby-install-*
+  when: ruby_install_downloaded.changed
+
+- name: Download list of rubies
+  shell: ruby-install
+  when: ruby_install_installed
+
+- name: Install latest ruby (MRI)
+  shell: ruby-install ruby
+  when: ruby_install_installed

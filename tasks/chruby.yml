@@ -1,0 +1,34 @@
+# Install chruby
+#
+#
+---
+- name: Create working directory
+  file:
+    path: /usr/src
+    state: directory
+
+- name: Download chruby
+  get_url:
+    url: https://github.com/postmodern/chruby/archive/v{{ chruby_version }}.tar.gz
+    dest: /usr/src/chruby-{{ chruby_version }}.tar.gz
+# todo add when: not already installed
+  register: chruby_downloaded
+
+- name: Extract chruby
+  shell: tar -C /usr/src -xzvf /usr/src/chruby-{{ chruby_version }}.tar.gz
+  when: chruby_downloaded.changed
+  register: chruby_extracted
+
+- name: Install chruby
+  #sudo: true
+  shell: cd /usr/src/chruby-{{ chruby_version }}/ && make install
+  when: chruby_extracted | changed
+  register: chruby_installed
+
+- name: Clean up chruby sources
+  shell: rm -rf /usr/src/chruby-*
+  when: chruby_downloaded.changed
+
+- name: Attach chruby into shell
+  sudo: true
+  template: src=chruby.sh dest=/etc/profile.d/chruby.sh

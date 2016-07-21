@@ -1,0 +1,11 @@
+mkdir ~/dev
+
+chruby template does not work where it is, append it to .zshrc/.bashrc, or better yet put a whole .zshrc as a template.
+
+add .gitconfig
+
+install tor, pgp etc.
+
+is there a way to make an installed ruby the system ruby via system links, e.g. symlink /usr/bin/{ruby,gem,rdoc,rake} etc.
+
+install neovim from PPA.

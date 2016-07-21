@@ -10,10 +10,9 @@
     - include: tasks/base.yml tags=base
     - include: tasks/apps.yml tags=apps
     - include: tasks/zsh.yml tags=zsh
-    - include: tasks/backup_sys.yml tags=backup
-    - include: tasks/emacs-snapshot.yml tags=emacs
-    - include: tasks/desktop.yml tags=desktop
-    - include: tasks/vbox.yml tags=vbox
+    - include: tasks/chruby.yml tags=ruby
+    - include: tasks/ruby-install.yml tags=ruby
+    #- include: tasks/desktop.yml tags=desktop
 
 - hosts: localhost
   connection: local
@@ -24,4 +23,3 @@
 
   tasks:
     - include: tasks/dotfiles.yml tags=dotfiles
-    - include: tasks/backup.yml tags=backup

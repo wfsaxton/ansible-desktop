@@ -5,68 +5,9 @@
 #
 # This part of software is released under the terms of the GPLv3 license.
 #
----
-# { APT
-- name: copy APT sources list
-  copy: >
-    src=files/sources.list dest=/etc/apt/
-    owner=root mode=644
-  register: apt_sources
 
-- name: update apt list
-  apt: update-cache=yes
-  when_boolean: ${apt_sources.changed}
-
-- name: install debian/APT specific packages
-  apt: pkg=$item state=installed
-  with_items:
-    - apt-listchanges
-    - etckeeper
-    - popularity-contest
-
-- name: copy configuration files for APT
-  copy: src=$item dest=/etc/apt/apt.conf.d/ owner=root mode=644
-  with_fileglob: files/apt.conf.d/*
-
-- name: enable popularity-contest
-  lineinfile: >
-    dest=/etc/popularity-contest.conf
-    regexp=^PARTICIPATE= line=PARTICIPATE="yes"
-
-- name: create pre-seed directory
-  file: >
-    state=directory path=/usr/local/src/preseed
-    owner=root group=root mode=600
-# }
-
-# { disable dash as default shell
-- name: dash config
-  copy: >
-    src=files/preseed/dash
-    dest=/usr/local/src/preseed/
-    owner=root mode=600
-  register: dash_seed
-
-- name: disable dash as default shell
-  command: debconf-set-selections /usr/local/src/preseed/dash
-  register: dash_reconf
-  when_boolean: ${dash_seed.changed}
-
-- name: dash reconfigure
-  command: dpkg-reconfigure -fnoninteractive dash
-  when_boolean: ${dash_reconf.changed}
-# }
-
-- name: tmpfs config
-  copy: >
-    src=files/tmpfs
-    dest=/etc/default/tmpfs
-    owner=root mode=644
-
-- name: install sudoers file (NOPASSWD)
-  template: src=templates/sudoers_user.j2
-    dest=/etc/sudoers.d/$user
-    owner=root group=root mode=0440
+- name: install ectkeeper
+  apt: name=etckeeper state=installed
 
 # { NTP
 - name: install ntpdate
@@ -75,7 +16,7 @@
 
 - name: exec ntpdate
   command: ntpdate-debian
-  when_boolean: ${ntpdate.changed}
+  when: ntpdate.changed
 
 - name: install NTP deamon
   apt: name=ntp state=installed

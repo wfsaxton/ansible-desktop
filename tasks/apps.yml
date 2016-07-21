@@ -7,15 +7,15 @@
 #
 ---
 - name: install system apps
-  apt: pkg= $item state=installed
+  apt: pkg=$item state=installed
   with_items:
     - vim
     - less
     - psmisc
     - htop 
-    - iotop
+    #- iotop
     - git
     - tree
     - ack-grep
-    - autojump
-    - lftp
+    #- autojump
+    #- lftp

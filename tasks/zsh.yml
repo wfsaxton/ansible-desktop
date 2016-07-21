@@ -1,4 +1,4 @@
-# Set zsh as default shell for $user and root
+# Set zsh as default shell for $user
 #
 #
 # Copyright (C) 2013 Calogero Lo Leggio <kalos@nerdrug.org>
@@ -9,16 +9,16 @@
 - name: install zsh
   apt: pkg=zsh state=installed
 
-- name: set zsh as default shell for $user and root
+- name: set zsh as default shell for $user
   user: shell=/bin/zsh name=$item
   with_items:
-    - root
+#    - root
     - $user
 
-- name: link ~/.oh-my-zsh for root
-  file: src=$user_home/.oh-my-zsh
-    dest=/root/.oh-my-zsh state=link
+#- name: link ~/.oh-my-zsh for root
+#  file: src=$user_home/.oh-my-zsh
+#    dest=/root/.oh-my-zsh state=link
 
-- name: link ~/.zshrc for root
-  file: src=$user_home/.oh-my-zsh/custom/.zshrc
-    dest=/root/.zshrc state=link
+#- name: link ~/.zshrc for root
+#  file: src=$user_home/.oh-my-zsh/custom/.zshrc
+#    dest=/root/.zshrc state=link
