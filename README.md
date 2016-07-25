@@ -15,16 +15,19 @@ Tested with:
 
 ## Installation
 
+Note: Before going any further it is recommended to fork this repository so that you
+can make changes and commit them back to your own repo.
+
 ### Ansible
 
-Note: We use the Ansible PPA because the Ubuntu repository contains version
-2.0.
+Note: We use the Ansible PPA because the Ubuntu repository contains the older
+2.0 version.
 
 ```
 sudo apt-get repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install git vim ansible
-git clone ???
+git clone git@github.com:krisleech/ansible-desktop.git
 cd ansible-desktop
 ```
 
@@ -33,7 +36,7 @@ You can also install Ansible 2.1 from [source](http://docs.ansible.com/ansible/i
 
 ## Configure
 
-edit `vars.yml`
+Edit `vars.yml` and change the `user` var:
 
 ```yaml
 user: kris
@@ -41,24 +44,24 @@ user: kris
 
 ## Usage
 
-install everything:
+Install everything:
 
     ansible-playbook -K -v setup.yml
 
-install certain tags:
+Install certain tags:
 
     ansible-playbook -K --tags zsh setup.yml
 
-`-K` will prompt for your root/sudo password if required.
+`-K` will prompt for your root/sudo password, if required.
 
 ## Private
 
-Copy SSH private keys to `
+Copy SSH private keys to `~/.ssh`.
 
 Import GPG private keys:
 
 ```
-gpg --allow-secret-key-import --import private.key
+gpg --allow-secret-key-import --import /media/USBPEN/private.key
 ```
 
 ## Inspirations
