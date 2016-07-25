@@ -1,24 +1,20 @@
-# Set zsh as default shell for $user
-#
-#
-# Copyright (C) 2013 Calogero Lo Leggio <kalos@nerdrug.org>
-#
-# This part of software is released under the terms of the GPLv3 license.
-#
 ---
 - name: install zsh
   apt: pkg=zsh state=installed
 
-- name: set zsh as default shell for $user
-  user: shell=/bin/zsh name=$item
-  with_items:
-#    - root
-    - $user
+- name: Set ZSH as default shell
+  command: chsh -s /bin/zsh {{ user }}
 
-#- name: link ~/.oh-my-zsh for root
-#  file: src=$user_home/.oh-my-zsh
-#    dest=/root/.oh-my-zsh state=link
+- name: Install Oh my ZSH
+  sudo: false
+  git: repo=git@github.com:robbyrussell/oh-my-zsh.git
+       dest=/home/{{user}}/.oh-my-zsh
+       accept_hostkey=yes
 
-#- name: link ~/.zshrc for root
-#  file: src=$user_home/.oh-my-zsh/custom/.zshrc
-#    dest=/root/.zshrc state=link
+- name: Copy zshrc
+  sudo: false
+  template: src=templates/zshrc dest=~/.zshrc
+
+- name: Copy .zshrc.local (once)
+  sudo: false
+  copy: src=templates/zshrc.local dest=/home/{{user}}/.zshrc.local force=no

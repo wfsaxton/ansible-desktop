@@ -7,11 +7,6 @@
 #
 ---
 # { zsh
-- name: pull last version of oh-my-zsh
-  git: >
-    repo=git://github.com/robbyrussell/oh-my-zsh.git
-    dest=/home/$user/.oh-my-zsh
-  tags: zsh
 
 #- name: pull zsh oh-my-zsh config
 #  git: >

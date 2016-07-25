@@ -1,0 +1,8 @@
+---
+- name: Install Git
+  apt: name=git state=installed
+
+- name: Copy .gitconfig
+  sudo: false
+  template: src=templates/gitconfig dest=~/.gitconfig
+

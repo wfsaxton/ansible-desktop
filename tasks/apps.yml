@@ -7,15 +7,15 @@
 #
 ---
 - name: install system apps
-  apt: pkg=$item state=installed
+  apt: pkg={{ item }} state=installed
   with_items:
     - vim
     - less
     - psmisc
-    - htop 
-    #- iotop
-    - git
+    - htop
     - tree
     - ack-grep
-    #- autojump
-    #- lftp
+
+- name: Install selecta
+  sudo: false
+  get_url: url=https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta dest=/home/{{user}}/bin/selecta mode=u+x

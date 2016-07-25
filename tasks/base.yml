@@ -6,6 +6,13 @@
 # This part of software is released under the terms of the GPLv3 license.
 #
 
+- name: Create home directories
+  sudo: false
+  file: path=/home/{{user}}/{{item}} state=directory mode=0755
+  with_items:
+    - dev
+    - bin
+
 - name: install ectkeeper
   apt: name=etckeeper state=installed
 

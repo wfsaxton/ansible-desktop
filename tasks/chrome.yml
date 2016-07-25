@@ -1,0 +1,4 @@
+---
+- name: install Chrome stable
+  sudo: true
+  apt: name=google-chrome-stable state=installed

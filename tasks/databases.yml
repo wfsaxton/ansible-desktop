@@ -1,0 +1,15 @@
+---
+- name: Install Redis
+  apt: name=redis-server state=installed
+
+- name: Install ElasticSearch
+  apt: name=elasticsearch state=installed
+
+- name: Install MySQL
+  apt: name=mysql-server state=installed
+
+- name: Install MySQL Development headers
+  apt: name=libmysqlclient-dev state=installed
+
+- name: Install SQLite
+  apt: name=sqlite3 state=installed

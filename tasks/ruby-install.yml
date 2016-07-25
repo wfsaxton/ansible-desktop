@@ -7,11 +7,15 @@
     path: /usr/src
     state: directory
 
+- name: Check ruby-install installed
+  stat: path=/usr/local/bin/ruby-install
+  register: stat_ruby_install
+
 - name: Download ruby-install
   get_url:
     url: https://github.com/postmodern/ruby-install/archive/v{{ ruby_install_version }}.tar.gz
     dest: /usr/src/ruby-install-{{ ruby_install_version }}.tar.gz
-# todo add when: not already installed
+  when: stat_ruby_install.stat.exists is not defined
   register: ruby_install_downloaded
 
 - name: Extract ruby-install
@@ -30,8 +34,8 @@
 
 - name: Download list of rubies
   shell: ruby-install
-  when: ruby_install_installed
+  when: ruby_install_installed.changed
 
 - name: Install latest ruby (MRI)
   shell: ruby-install ruby
-  when: ruby_install_installed
+  when: ruby_install_installed.changed

@@ -1,0 +1,4 @@
+---
+- name: install compizconfig manager
+  apt: name=compizconfig-settings-manager state=installed
+

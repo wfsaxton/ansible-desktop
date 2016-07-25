@@ -1,0 +1,24 @@
+---
+- name: Install XClip (copy/paste for the terminal)
+  apt: name=xclip state=installed
+
+- name: Add PPA for NeoVIM
+  apt_repository: repo='ppa:neovim-ppa/unstable' state=present
+
+- name: Install NeoVIM
+  apt: name=neovim state=installed update_cache=yes
+  register: neovim_installed
+
+- name: Add NeoVIM configuration
+  sudo: false
+  git: repo=https://github.com/krisleech/neovim-config.git
+       dest=~/.config/nvim
+       accept_hostkey=yes
+  when: neovim_installed.changed
+  register: neovim_configuration_installed
+
+- name: Install NeoVIM plugins
+  sudo: false
+  command: nvim -c "PlugInstall | qa!"
+  when: neovim_configuration_installed.changed
+
