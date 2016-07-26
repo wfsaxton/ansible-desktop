@@ -11,6 +11,8 @@
     - include: tasks/apps.yml tags=apps
     - include: tasks/dropbox.yml tags=apps
     - include: tasks/skype.yml tags=apps
+    - include: tasks/terminator.yml tags=apps
+    - include: tasks/fonts.yml tags=fonts
     - include: tasks/zsh.yml tags=zsh
     - include: tasks/bash.yml tags=bash
     - include: tasks/chruby.yml tags=ruby

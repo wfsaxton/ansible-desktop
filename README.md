@@ -20,6 +20,7 @@ Tested with:
 - Rocketchat, Skype, Slack
 - i3 Window Manager
 - Dotfiles
+- Coding fonts
 
 ## Installation
 

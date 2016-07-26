@@ -1,0 +1,27 @@
+---
+- name: Create ~/.fonts
+  sudo: false
+  file: path=/home/{{user}}/.fonts state=directory mode=0755
+
+- name: Download Inconsolata font
+  sudo: false
+  get_url:
+    url: http://www.levien.com/type/myfonts/Inconsolata.otf
+    dest: /home/{{user}}/.fonts/Inconsolata.otf
+  register: font_installed
+
+- name: Download Monoid font
+  sudo: false
+  unarchive: src=https://github.com/larsenwork/monoid/blob/release/Monoid.zip?raw=true dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/Monoid-Regular.ttf
+  register: font_installed
+
+- name: Download Losevka fonts
+  sudo: false
+  unarchive: src=https://github.com/be5invis/Iosevka/releases/download/v1.9.1/iosevka-pack-1.9.1.zip dest=/home/{{user}}/.fonts/ copy=no creates=/home/{{user}}/.fonts/iosevka-regular.ttf
+  register: font_installed
+
+- name: Update font cache
+  sudo: true
+  command: fc-cache
+  when: font_installed.changed
+
