@@ -24,6 +24,7 @@
     - include: tasks/pass.yml tags=apps
     - include: tasks/keepassx.yml tags=apps
     - include: tasks/gnome.yml tags=desktop
+    - include: tasks/numix.yml tags=desktop
     - include: tasks/i3.yml tags=desktop
     - include: tasks/neovim.yml tags=dev
     - include: tasks/tmux.yml tags=dev

@@ -19,6 +19,7 @@ Tested with:
 - Dropbox
 - Rocketchat, Skype, Slack
 - i3 Window Manager
+- Nunix Unity Theme
 - Dotfiles
 - Coding fonts
 
@@ -62,6 +63,11 @@ Install certain tags:
     ansible-playbook -K --tags zsh setup.yml
 
 `-K` will prompt for your root/sudo password, if required.
+
+## Notes
+
+The numix theme is not enabled by default. To do so open the unity-tweak-tool
+and select the theme.
 
 ## Private
 

@@ -2,3 +2,8 @@
 - name: install compizconfig manager
   apt: name=compizconfig-settings-manager state=installed
 
+# when an luncher icon is clicked it opens the app, click again to minimise
+- name: Launcher minimise on click
+  sudo: false
+  command: "gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true"
+
