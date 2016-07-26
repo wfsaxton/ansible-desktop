@@ -7,13 +7,13 @@
 
 - name: Install Oh my ZSH
   sudo: false
-  git: repo=git@github.com:robbyrussell/oh-my-zsh.git
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git
        dest=/home/{{user}}/.oh-my-zsh
        accept_hostkey=yes
 
 - name: Copy zshrc
   sudo: false
-  template: src=templates/zshrc dest=~/.zshrc
+  template: src=templates/zshrc dest=~/.zshrc force=yes
 
 - name: Copy .zshrc.local (once)
   sudo: false

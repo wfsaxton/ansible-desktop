@@ -1,0 +1,11 @@
+---
+# https://www.passwordstore.org/
+- name: Install Pass (Password manager)
+  apt: name=pass state=installed
+
+- name: QT Pin Entry
+  apt: name=pinentry-qt state=installed
+
+- name: Install Pass (Password manager) GUI
+  apt: name=qtpass state=installed
+

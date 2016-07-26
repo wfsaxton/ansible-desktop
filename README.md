@@ -9,9 +9,17 @@ Tested with:
 
 ## Features
 
-- install favourites apps
+- Zsh, NeoVIM, Tmux
+- Chrome, Firefox
+- PGP, Tor, Password Manager
 - NTP and localization
-- easy management of dotfiles (zsh, vim, ruby)
+- Ruby, Java, Clojure
+- Redis, ES, MySQL
+- Vritualbox, Vagrant
+- Dropbox
+- Rocketchat, Skype, Slack
+- i3 Window Manager
+- Dotfiles
 
 ## Installation
 
@@ -67,4 +75,4 @@ gpg --allow-secret-key-import --import /media/USBPEN/private.key
 ## Inspirations
 
 * https://github.com/kalos/ansible-desktop
-
+* https://github.com/chaosmail/dev-env

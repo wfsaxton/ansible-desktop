@@ -1,0 +1,6 @@
+---
+# Install KeePassX
+
+- name: Install latest keepassx package
+  apt: name=keepassx state=latest force=yes
+  sudo: true

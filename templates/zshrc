@@ -88,3 +88,6 @@ source /usr/local/share/chruby/auto.sh
 
 # file containing anything not kept in version control
 source ~/.zshrc.local
+
+
+alias be=bundle exec

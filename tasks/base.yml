@@ -13,8 +13,18 @@
     - dev
     - bin
 
-- name: install ectkeeper
+- name: Install ectkeeper
   apt: name=etckeeper state=installed
+  register: etckeeper_installed
+
+# FIXME: the git repo does not exist stright away
+#
+# - name: Turn off git pgpsign for etckeeper
+#   sudo: true
+#   command: git config --local commit.pgpsign false
+#   args:
+#     chdir: /etc
+#   when: etckeeper_installed.changed
 
 # { NTP
 - name: install ntpdate

@@ -1,0 +1,6 @@
+---
+# Install & Configure Vagrant
+
+- name: Install Vagrant
+  sudo: true
+  apt: name=vagrant state=installed

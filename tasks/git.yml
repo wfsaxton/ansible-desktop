@@ -4,5 +4,5 @@
 
 - name: Copy .gitconfig
   sudo: false
-  template: src=templates/gitconfig dest=~/.gitconfig
+  template: src=templates/gitconfig dest=~/.gitconfig force=yes
 

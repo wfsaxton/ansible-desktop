@@ -2,11 +2,18 @@
 - name: Install XClip (copy/paste for the terminal)
   apt: name=xclip state=installed
 
+- name: Check NeoVIM installed
+  stat: path=/usr/bin/nvim
+  register: stat_nvim
+
 - name: Add PPA for NeoVIM
   apt_repository: repo='ppa:neovim-ppa/unstable' state=present
+  when: stat_nvim.changed
+  register: nvim_ppa_added
 
 - name: Install NeoVIM
   apt: name=neovim state=installed update_cache=yes
+  when: nvim_ppa_added.changed
   register: neovim_installed
 
 - name: Add NeoVIM configuration

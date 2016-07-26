@@ -1,0 +1,18 @@
+---
+# Install & Configure Virtualbox
+
+- name: Add apt package source
+  apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian xenial contrib" state=present
+  sudo: true
+
+- name: Add apt key
+  apt_key: url="http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc" state=present
+  sudo: true
+
+- name: Update package manager
+  apt: update_cache=yes
+  sudo: true
+
+- name: Install latest virtualbox package
+  apt: pkg="virtualbox-5.1" state=present force=yes
+  sudo: true

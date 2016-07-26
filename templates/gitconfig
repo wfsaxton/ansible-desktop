@@ -15,4 +15,4 @@
 	last = log -1 HEAD
 	stashq = -c commit.gpgsign=false stash
 [commit]
-	gpgsign = true
+	#gpgsign = true

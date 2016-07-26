@@ -9,18 +9,25 @@
   tasks:
     - include: tasks/base.yml tags=base
     - include: tasks/apps.yml tags=apps
+    - include: tasks/dropbox.yml tags=apps
+    - include: tasks/skype.yml tags=apps
     - include: tasks/zsh.yml tags=zsh
     - include: tasks/bash.yml tags=bash
     - include: tasks/chruby.yml tags=ruby
     - include: tasks/ruby-install.yml tags=ruby
     - include: tasks/ruby.yml tags=ruby
+    - include: tasks/phantomjs.yml tags=dev
     - include: tasks/chrome.yml tags=apps
     - include: tasks/tor.yml tags=apps
+    - include: tasks/pass.yml tags=apps
+    - include: tasks/keepassx.yml tags=apps
     - include: tasks/gnome.yml tags=desktop
     - include: tasks/i3.yml tags=desktop
     - include: tasks/neovim.yml tags=dev
     - include: tasks/tmux.yml tags=dev
     - include: tasks/git.yml tags=dev
+    - include: tasks/vagrant.yml tags=dev
+    # - include: tasks/virtualbox.yml tags=dev
     - include: tasks/test.yml tags=test
     - include: tasks/rocketchat.yml tags=chat
     - include: tasks/databases.yml tags=databases
