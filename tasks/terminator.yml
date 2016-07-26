@@ -1,15 +1,12 @@
 ---
-# Install & Configure Skype
-
 - name: Add terminator repository
   apt_repository: repo="ppa:gnome-terminator"
-  sudo: true
-
-- name: Update package manager
-  apt: update_cache=yes
   sudo: true
 
 - name: Install Terminator
   apt: name=terminator state=latest
   sudo: true
 
+- name: Copy Terminator config
+  sudo: false
+  template: src=templates/terminator_config dest=~/.config/terminator/config
