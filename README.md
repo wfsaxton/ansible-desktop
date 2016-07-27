@@ -20,8 +20,10 @@ Tested with:
 - Rocketchat, Skype, Slack
 - i3 Window Manager
 - Nunix Unity Theme
+- Yunikey support
 - Dotfiles
 - Coding fonts
+- and more...
 
 ## Installation
 

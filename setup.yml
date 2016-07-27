@@ -9,6 +9,7 @@
   tasks:
     - include: tasks/base.yml tags=base
     - include: tasks/apps.yml tags=apps
+    - include: tasks/yubikey.yml tags=apps
     - include: tasks/dropbox.yml tags=apps
     - include: tasks/skype.yml tags=apps
     - include: tasks/terminator.yml tags=apps
