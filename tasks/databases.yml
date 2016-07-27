@@ -11,9 +11,11 @@
 - name: Install MySQL Development headers
   apt: name=libmysqlclient-dev state=installed
 
+- name: MySQL should be running
+  service: name=mysql state=running enabled=yes
+
 - name: Symlink MySQL socket
   sudo: false
-  # command: ln -s /run/mysqld/mysqld.sock /tmp/mysql.sock creates=/tmp/mysql.sock
   file: src=/run/mysqld/mysqld.sock dest=/tmp/mysql.sock state=link
 
 - name: Install SQLite

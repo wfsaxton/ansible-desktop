@@ -15,7 +15,31 @@
     - htop
     - tree
     - ack-grep
+    - silversearcher-ag
+    - entr
+
+- name: Copy Dotfiles
+  sudo: false
+  template: src=templates/dotfiles/{{item}} dest=/home/{{user}}/.{{item}}
+  with_items:
+    - ackrc
+    - agignore
+
+
+- name: Install FZF
+  sudo: false
+  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/0.13.3/fzf-0.13.3-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf copy=no
+  register: downloaded_fzf
+
+- name: Symlink FZF
+  sudo: false
+  file: src=/home/{{user}}/bin/fzf-0.13.3-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
+  when: downloaded_fzf.changed
 
 - name: Install selecta
   sudo: false
   get_url: url=https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta dest=/home/{{user}}/bin/selecta mode=u+x
+
+- name: install Git Kraken
+  sudo: true
+  apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb

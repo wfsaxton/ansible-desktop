@@ -41,3 +41,7 @@
 - name: NTP should be running
   service: name=ntp state=running enabled=yes
 # }
+
+# while my locale is GB my keyboard is US
+- name: Set US keyboard layout
+  command: setxkbmap us

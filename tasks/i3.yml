@@ -2,3 +2,11 @@
 - name: install i3 Window Manager
   apt: name=i3 state=installed
 
+- name: Create config directory
+  sudo: false
+  file: path=/home/{{user}}/.i3 state=directory mode=0755
+
+- name: Copy i3 conf
+  sudo: false
+  template: src=templates/i3_config dest=~/.i3/config
+
