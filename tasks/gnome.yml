@@ -7,3 +7,9 @@
   sudo: false
   command: "gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true"
 
+
+# https://faq.i3wm.org/question/1/how-can-i-get-rid-of-the-nautilus-desktop-window.1.html
+- name: Prevent desktop showing when opening Nautilus
+  sudo: false
+  command: " gsettings set org.gnome.desktop.background show-desktop-icons false"
+
