@@ -1,2 +1,4 @@
-# install gpg
+---
+- name: Install GPG2
+  apt: name=gnupg2 state=installed
 

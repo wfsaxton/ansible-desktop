@@ -9,7 +9,7 @@
   tasks:
     - include: tasks/base.yml tags=base
     - include: tasks/apps.yml tags=apps
-    - include: tasks/yubikey.yml tags=apps
+    - include: tasks/yubikey.yml tags=secops
     - include: tasks/dropbox.yml tags=apps
     - include: tasks/skype.yml tags=apps
     - include: tasks/terminator.yml tags=apps
@@ -35,6 +35,7 @@
     - include: tasks/test.yml tags=test
     - include: tasks/rocketchat.yml tags=chat
     - include: tasks/databases.yml tags=databases
+    - include: tasks/gpg.yml tags=secops
 
 - hosts: localhost
   connection: local

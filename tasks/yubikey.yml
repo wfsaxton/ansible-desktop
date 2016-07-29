@@ -3,12 +3,14 @@
   apt_repository: repo=ppa:yubico/stable
   sudo: true
 
-- name: Install Yubikey Desktop
+- name: Install Yubikey
   apt: name={{item}}
   with_items:
     - yubikey-neo-manager
     - yubioath-desktop
     - yubikey-personalization
     - yubikey-personalization-gui
+    - ykneomgr
+    - scdaemon
 
 
