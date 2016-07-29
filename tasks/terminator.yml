@@ -4,9 +4,12 @@
   sudo: true
 
 - name: Install Terminator
-  apt: name=terminator state=latest
+  apt: name=terminator state=installed
   sudo: true
 
 - name: Copy Terminator config
   sudo: false
   template: src=templates/terminator_config dest=~/.config/terminator/config
+
+- name: Install Terminology Terminal
+  apt: name=terminology state=installed
