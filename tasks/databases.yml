@@ -14,9 +14,24 @@
 - name: MySQL should be running
   service: name=mysql state=running enabled=yes
 
+- name: Symlink MySQL client configuration
+  sudo: false
+  file: src=templates/my.cnf dest=/home/{{user}}/.my.cnf
+
+# http://mycli.net/
+- name: Install MyCLI
+  apt: name=mycli state=installed
+
+- name: Symlink myCLI configuration
+  sudo: false
+  file: src=templates/myclirc dest=/home/{{user}}/.myclirc
+
+- name: Install MySQL Workbench
+  apt:  name=mysql-workbench state=installed
+
 - name: Symlink MySQL socket
   sudo: false
-  file: src=/run/mysqld/mysqld.sock dest=/tmp/mysql.sock state=link
+  file: src=/var/run/mysqld/mysqld.sock dest=/tmp/mysql.sock state=link
 
 - name: Install SQLite
   apt: name=sqlite3 state=installed
