@@ -36,6 +36,7 @@
     - include: tasks/rocketchat.yml tags=chat
     - include: tasks/databases.yml tags=databases
     - include: tasks/gpg.yml tags=secops
+    - include: tasks/clamav.yml tags=secops
 
 - hosts: localhost
   connection: local

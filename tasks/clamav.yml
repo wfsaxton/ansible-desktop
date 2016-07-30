@@ -1,0 +1,8 @@
+---
+- name: CalmAV (Anti Virus)
+  apt: name={{item}} state=installed
+  with_items:
+    - clamav
+    - clamav-freshclam
+    - clamav-daemon
+    - clamtk-gnome
