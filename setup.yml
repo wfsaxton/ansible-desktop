@@ -30,6 +30,7 @@
     - include: tasks/neovim.yml tags=dev
     - include: tasks/tmux.yml tags=dev
     - include: tasks/git.yml tags=dev
+    - include: tasks/gitencrypt.yml tags=dev
     - include: tasks/vagrant.yml tags=dev
     # - include: tasks/virtualbox.yml tags=dev
     - include: tasks/test.yml tags=test
