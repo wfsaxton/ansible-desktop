@@ -1,0 +1,15 @@
+- name: Copy .ssh/config
+  sudo: false
+  template: src=templates/ssh_config dest=/home/{{user}}/.ssh/config force=yes mode=600
+
+- name: Set ~/.ssh permission
+  file: path=/home/{{user}}/.ssh mode=755
+
+- name: Set SSH known_hosts permission
+  file: path=/home/{{user}}/.ssh/known_hosts mode=644
+
+- name: Set SSH key permissions
+  file: path=/home/{{user}}/.ssh/{{item}} mode=600
+  with_items:
+    - identity
+    - identity.pub
