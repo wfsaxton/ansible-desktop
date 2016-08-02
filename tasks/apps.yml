@@ -42,4 +42,4 @@
 
 - name: install Git Kraken
   sudo: true
-  apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb
+  apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb state=installed
