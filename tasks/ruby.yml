@@ -8,10 +8,12 @@
 #     - libyaml-dev
 #     - libsqlite3-dev
 #     - sqlite3
-#     - libxml2-dev
-#     - libxslt1-dev
+#     - libxml2-dev # nokogiri
+#     - libxslt-dev # nokogiri
+#     - libxslt1-dev # nokogiri
 #     - libcurl4-openssl-dev
 #     - libffi-dev
+#     - libgumbo-dev # nokogumbo
 
 
 - name: Install system Ruby
