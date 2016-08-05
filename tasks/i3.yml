@@ -2,6 +2,11 @@
 - name: install i3 Window Manager
   apt: name=i3 state=installed
 
+  # xdotool is used in i3 config to map Super+c to Ctrl+c etc.
+- name: install xdotool
+  apt: name=xdotool state=installed
+
+# alternative i3 application launcher
 - name: Install rofi (app launcher)
   apt: name=rofi state=installed
 
@@ -13,3 +18,16 @@
   sudo: false
   template: src=templates/i3_config dest=/home/{{user}}/.config/i3/config
 
+- name: Copy i3status conf
+  sudo: false
+  template: src=templates/i3status_config dest=/home/{{user}}/.config/i3status/config
+
+# nautilus, by default, opens without the --no-desktop option which causes the
+# desktop to be shown over the top of the i3 UI.
+#
+# This fix adds a .desktop file which will be picked up by the i3 application
+# launcher instead of the default.
+#
+- name: Fix Nautilus in i3
+  sudo: false
+  template: src=templates/nautilus.desktop dest=/home/{{user}}/.local/share/applications

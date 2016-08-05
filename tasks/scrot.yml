@@ -1,0 +1,3 @@
+---
+- name: Install scrot (Screen capture)
+  apt: pkg=scrot state=installed

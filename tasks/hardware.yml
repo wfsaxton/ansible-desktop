@@ -1,0 +1,3 @@
+---
+- name: Install Logitech Unifying Receiver
+  apt: name=solaar-gnome3 state=installed

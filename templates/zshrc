@@ -85,3 +85,6 @@ source /usr/local/share/chruby/auto.sh
 source ~/.zshrc.local
 
 alias be=bundle exec
+
+# open the current directory in file manager
+alias here="xdg-open ."

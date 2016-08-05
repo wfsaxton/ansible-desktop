@@ -12,6 +12,7 @@
     - include: tasks/apps.yml tags=apps
     - include: tasks/yubikey.yml tags=secops
     - include: tasks/dropbox.yml tags=apps
+    - include: tasks/scrot.yml tags=apps
     - include: tasks/skype.yml tags=apps
     - include: tasks/terminator.yml tags=apps
     - include: tasks/fonts.yml tags=fonts
@@ -39,6 +40,7 @@
     - include: tasks/databases.yml tags=databases
     - include: tasks/gpg.yml tags=secops
     - include: tasks/clamav.yml tags=secops
+    - include: tasks/keybase.yml tags=secops
 
 - hosts: localhost
   connection: local
