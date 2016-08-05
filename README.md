@@ -27,8 +27,8 @@ Tested with:
 
 ## Installation
 
-Note: Before going any further it is recommended to fork this repository so that you
-can make changes and commit them back to your own repo.
+Checkout the [Getting Started](https://github.com/krisleech/ansible-desktop/wiki/Getting-started) guide
+for an overview and examples of the recipies used.
 
 ### Ansible
 
