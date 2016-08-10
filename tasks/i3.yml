@@ -31,3 +31,11 @@
 - name: Fix Nautilus in i3
   sudo: false
   template: src=templates/nautilus.desktop dest=/home/{{user}}/.local/share/applications
+
+# Compton prevents screen tearing which happens when the screen updates a lot,
+# e.g. scrolling or watching videos
+#
+# https://github.com/chjj/compton
+- name: Install Compton
+  sudo: true
+  apt: name=compton state=installed

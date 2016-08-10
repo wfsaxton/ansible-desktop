@@ -127,6 +127,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# grab screen selection, upload to Dropbox and copy URL to clipboard
+# https://github.com/krisleech/scnsht
+bindsym --release $mod+p exec --no-startup-id scnsht
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -167,3 +171,6 @@ client.unfocused        #333333 #424242 #888888 #292d2e
 client.urgent           #C10004 #900000 #ffffff #900000
 
 exec --no-startup-id setxkbmap us
+exec --no-startup-id dropbox start
+exec --no-startup-id compton -CGb
+

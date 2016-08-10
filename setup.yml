@@ -25,6 +25,7 @@
     - include: tasks/chrome.yml tags=apps
     - include: tasks/tor.yml tags=apps
     - include: tasks/pass.yml tags=apps
+    - include: tasks/scnsht.yml tags=apps
     - include: tasks/keepassx.yml tags=apps
     - include: tasks/gnome.yml tags=desktop
     - include: tasks/numix.yml tags=desktop
