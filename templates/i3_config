@@ -173,4 +173,4 @@ client.urgent           #C10004 #900000 #ffffff #900000
 exec --no-startup-id setxkbmap us
 exec --no-startup-id dropbox start
 exec --no-startup-id compton -CGb
-
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/desktop.jpeg

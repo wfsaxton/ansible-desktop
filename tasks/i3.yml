@@ -39,3 +39,11 @@
 - name: Install Compton
   sudo: true
   apt: name=compton state=installed
+
+- name: Install Feh (wallpaper)
+  sudo: true
+  apt: name=feh state=installed
+
+- name: Copy wallpapers
+  sudo: true
+  copy: src=templates/wallpapers/desktop.jpeg dest=/usr/share/backgrounds
