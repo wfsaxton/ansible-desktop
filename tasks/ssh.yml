@@ -3,13 +3,17 @@
   template: src=templates/ssh_config dest=/home/{{user}}/.ssh/config force=yes mode=600
 
 - name: Set ~/.ssh permission
-  file: path=/home/{{user}}/.ssh mode=755
+  file: path=/home/{{user}}/.ssh mode=755 state=directory
 
 - name: Set SSH known_hosts permission
-  file: path=/home/{{user}}/.ssh/known_hosts mode=644
+  file: path=/home/{{user}}/.ssh/known_hosts mode=644 state=touch
+
+- stat: path=/home/{{user}}/.ssh/identity
+  register: identity
 
 - name: Set SSH key permissions
-  file: path=/home/{{user}}/.ssh/{{item}} mode=600
+  file: path=/home/{{user}}/.ssh/{{item}} mode=600 state=file
   with_items:
     - identity
     - identity.pub
+  when: identity.stat.exists == True

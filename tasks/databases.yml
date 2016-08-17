@@ -19,17 +19,17 @@
 - name: MySQL should be running
   service: name=mysql state=running enabled=yes
 
-- name: Symlink MySQL client configuration
+- name: Copy MySQL client configuration
   sudo: false
-  file: src=templates/my.cnf dest=/home/{{user}}/.my.cnf
+  copy: src=templates/my.cnf dest=/home/{{user}}/.my.cnf
 
 # http://mycli.net/
 - name: Install MyCLI
   apt: name=mycli state=installed
 
-- name: Symlink myCLI configuration
+- name: Copy myCLI configuration
   sudo: false
-  file: src=templates/myclirc dest=/home/{{user}}/.myclirc
+  copy: src=templates/myclirc dest=/home/{{user}}/.myclirc
 
 - name: Install MySQL Workbench
   apt:  name=mysql-workbench state=installed

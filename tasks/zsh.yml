@@ -13,7 +13,7 @@
 
 - name: Copy zshrc
   sudo: false
-  template: src=templates/zshrc dest=~/.zshrc force=yes
+  template: src=templates/zshrc dest=/home/{{user}}/.zshrc force=yes
 
 - name: Copy .zshrc.local (once)
   sudo: false

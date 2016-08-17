@@ -36,7 +36,7 @@ Note: We use the Ansible PPA because the Ubuntu repository contains the older
 2.0 version.
 
 ```
-sudo apt-get repository ppa:ansible/ansible
+sudo add-apt-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install git vim ansible
 git clone git@github.com:krisleech/ansible-desktop.git

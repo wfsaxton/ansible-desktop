@@ -7,9 +7,12 @@
   apt: name=terminator state=installed
   sudo: true
 
+- name: Create terminator config directory
+  file: path=/home/{{user}}/.config/terminator state=directory
+
 - name: Copy Terminator config
   sudo: false
-  template: src=templates/terminator_config dest=~/.config/terminator/config
+  template: src=templates/terminator_config dest=/home/{{user}}/.config/terminator/config
 
 - name: Install Terminology Terminal
   apt: name=terminology state=installed

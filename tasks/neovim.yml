@@ -7,25 +7,25 @@
   register: stat_nvim
 
 - name: Add PPA for NeoVIM
+  sudo: true
   apt_repository: repo='ppa:neovim-ppa/unstable' state=present
-  when: stat_nvim.changed
-  register: nvim_ppa_added
+  when: stat_nvim.stat.exists == False
 
 - name: Install NeoVIM
-  apt: name=neovim state=installed update_cache=yes
-  when: nvim_ppa_added.changed
-  register: neovim_installed
+  sudo: true
+  apt: name=neovim state=installed
+  when: stat_nvim.stat.exists == False
 
 - name: Add NeoVIM configuration
   sudo: false
   git: repo=https://github.com/krisleech/neovim-config.git
-       dest=~/.config/nvim
+       dest=/home/{{user}}/.config/nvim
        accept_hostkey=yes
-  when: neovim_installed.changed
-  register: neovim_configuration_installed
+  when: stat_nvim.stat.exists == False
 
-- name: Install NeoVIM plugins
-  sudo: false
-  command: nvim -c "PlugInstall | qa!"
-  when: neovim_configuration_installed.changed
+# FIXME: fails due to need for user input on fresh install
+# - name: Install NeoVIM plugins
+#   sudo: false
+#   command: nvim -c "PlugInstall | qa!"
+#   when: stat_nvim.stat.exists == False
 

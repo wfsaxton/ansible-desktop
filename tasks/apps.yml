@@ -40,6 +40,11 @@
   sudo: false
   get_url: url=https://raw.githubusercontent.com/garybernhardt/selecta/master/selecta dest=/home/{{user}}/bin/selecta mode=u+x
 
-- name: install Git Kraken
+- name: Is Git Kraken installed
+  stat: path=/usr/bin/gitkraken
+  register: git_kraken_stat
+
+- name: Install Git Kraken
   sudo: true
   apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb state=installed
+  when: git_kraken_stat.stat.exists == False

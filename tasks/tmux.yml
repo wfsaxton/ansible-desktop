@@ -4,5 +4,5 @@
 
 - name: Copy .tmux.conf
   sudo: false
-  template: src=templates/tmux.conf dest=~/.tmux.conf
+  template: src=templates/tmux.conf dest=/home/{{user}}/.tmux.conf
 

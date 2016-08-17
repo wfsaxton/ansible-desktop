@@ -1,4 +1,4 @@
 ---
-# installing from http was added in Ansible 2.1
+# FIXME: this is slow, check with stat, for binary first
 - name: Install Rocketchat app
   apt: deb=https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/{{ rocketchat_version }}/rocketchat-v{{rocketchat_version}}-linux-x64.deb

@@ -15,4 +15,4 @@
 
 - name: Copy .conkyrc
   sudo: false
-  template: src=templates/conkyrc dest=~/.conkyrc
+  template: src=templates/conkyrc dest=/home/{{user}}/.conkyrc
