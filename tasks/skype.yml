@@ -5,10 +5,6 @@
   apt_repository: repo="deb http://archive.canonical.com/ xenial partner"
   sudo: true
 
-- name: Update package manager
-  apt: update_cache=yes
-  sudo: true
-
 - name: Install Skype
   apt: name=skype state=latest
   sudo: true
