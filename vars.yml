@@ -3,7 +3,6 @@ user: kris
 git_signing_key: 3ABC74851F7CCC88
 git_email: kris.leech@gmail.com
 git_name: Kris Leech
-user_home: /home/$user
 dotfiles_dir: /home/$user/dev/dotfiles
 chruby_version: 0.3.9
 ruby_install_version: 0.6.0
