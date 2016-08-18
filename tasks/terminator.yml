@@ -8,6 +8,7 @@
   sudo: true
 
 - name: Create terminator config directory
+  sudo: false
   file: path=/home/{{user}}/.config/terminator state=directory
 
 - name: Copy Terminator config
