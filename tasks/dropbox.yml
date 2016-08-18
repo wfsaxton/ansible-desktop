@@ -7,6 +7,11 @@
   failed_when: dropbox_check_deb.rc > 1
   changed_when: dropbox_check_deb.rc == 1
 
+- name: Install dropbox dependencies
+  apt: name=python-gpgme
+  become: root
+  when: dropbox_check_deb.rc == 1
+
 - name: Download dropbox
   get_url: 
     url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
@@ -15,5 +20,9 @@
 
 - name: Install dropbox
   apt: deb="/home/{{user}}/Downloads/dropbox.deb"
-  sudo: true
+  become: root
+  when: dropbox_check_deb.rc == 1
+
+- name: Restart Nautilus
+  command: "killall nautilus &> /dev/null"
   when: dropbox_check_deb.rc == 1
