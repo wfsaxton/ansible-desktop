@@ -25,4 +25,5 @@
 
 - name: Restart Nautilus
   command: "killall nautilus &> /dev/null"
+  ignore_errors: yes
   when: dropbox_check_deb.rc == 1

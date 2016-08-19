@@ -71,14 +71,10 @@ Install certain tags:
 The numix theme is not enabled by default. To do so open the unity-tweak-tool
 and select the theme.
 
-## Private
-
-Copy SSH private keys to `~/.ssh`.
-
-Import GPG private keys:
+## Vagrant/VirtualBox
 
 ```
-gpg --allow-secret-key-import --import /media/USBPEN/private.key
+vagrant up --provision
 ```
 
 ## Inspirations

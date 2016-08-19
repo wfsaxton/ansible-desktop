@@ -7,7 +7,7 @@
 #
 
 - name: Create home directories
-  sudo: false
+  become: no
   file: path=/home/{{user}}/{{item}} state=directory mode=0755
   with_items:
     - dev
@@ -27,21 +27,37 @@
 #   when: etckeeper_installed.changed
 
 # { NTP
-- name: install ntpdate
-  apt: name=ntpdate state=installed
-  register: ntpdate
 
-- name: exec ntpdate
-  command: ntpdate-debian
-  when: ntpdate.changed
 
-- name: install NTP deamon
+- name: Install NTP deamon
   apt: name=ntp state=installed
+
+- name: Install ntpdate
+  apt: name=ntpdate state=installed
 
 - name: NTP should be running
   service: name=ntp state=running enabled=yes
+
+# FIXME: this fails, locally and on VM
+# - name: exec ntpdate
+#   command: ntpdate-debian
+#
+- name: Sync time
+  command: ntpdate pool.ntp.org
 # }
 
+# FIXME: this fails on Vagrant because we are connecting via
+#         SSH and not within an XSession: Cannot open display \"default display\
+#
 # while my locale is GB my keyboard is US
-- name: Set US keyboard layout
-  command: setxkbmap us
+# - name: Set US keyboard layout
+#   command: setxkbmap us
+
+- name: Set locale
+  command: update-locale LANG=en_GB.UTF-8 LANGUAGE=en_GB
+
+- name: Set locale
+  lineinfile: dest=/etc/environment regexp="^LANG=" line="LANG=en_GB.UTF-8"
+
+- name: Set locale
+  lineinfile: dest=/etc/environment regexp="^LC_ALL=" line="LC_ALL=en_GB.UTF-8"
