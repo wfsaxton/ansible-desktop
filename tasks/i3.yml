@@ -50,3 +50,19 @@
 - name: Copy wallpapers
   sudo: true
   copy: src=templates/wallpapers/desktop.jpeg dest=/usr/share/backgrounds
+
+- name: Install Gnome
+  sudo: true
+  apt: name={{item}} state=installed
+  with_items:
+    - gnome-panel
+    - gnome-session
+    - gnome-settings-daemon
+
+- name: Gnome config
+  sudo: true
+  template: src=templates/gnome-i3.desktop dest=/usr/share/xsessions
+
+- name: Gnome config
+  sudo: true
+  template: src=templates/gnome-i3.session dest=/usr/share/gnome-session/sessions
