@@ -71,6 +71,12 @@ Install certain tags:
 The numix theme is not enabled by default. To do so open the unity-tweak-tool
 and select the theme.
 
+There are several sessions which can be selected from the Greeter (login
+screen) including Unity (Ubuntu default), Gnome, i3, and Gnome+i3.
+
+I prefer Gnome+i3, this gives me a tiling window manager with all the
+conveniences of the Gnome underpinnings.
+
 ## Vagrant/VirtualBox
 
 ```
