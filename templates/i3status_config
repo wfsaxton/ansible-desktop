@@ -3,14 +3,16 @@ general {
         interval = 5
 }
 
+order += "volume master"
 /* order += "ipv6" */
 order += "disk /"
-order += "run_watch MySQL"
+order += "path_exists MySQL"
+order += "path_exists Redis"
 /* order += "run_watch DHCP" */
 /* order += "run_watch VPNC" */
 order += "path_exists VPN"
 /* order += "wireless wlan0" */
-order += "ethernet eth0"
+order += "ethernet enp0s31f6"
 /* order += "battery 0" */
 /* order += "cpu_temperature 0" */
 order += "load"
@@ -21,7 +23,7 @@ wireless wlan0 {
         format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet enp0s31f6 {
         # if you use %speed, i3status requires the cap_net_admin capability
         format_up = "LAN: %ip (%speed)"
         format_down = "LAN: down"
@@ -41,17 +43,25 @@ run_watch DHCP {
         pidfile = "/var/run/dhclient*.pid"
 }
 
-run_watch MySQL {
-        pidfile = "/var/run/mysqld/mysqld.pid"
+path_exists MySQL {
+        path = "/var/run/mysqld/mysqld.pid"
+        format_down = ""
+}
+
+path_exists Redis {
+        path = "/var/run/redis/redis-server.pid"
+        format_down = ""
 }
 
 run_watch VPNC {
         # file containing the PID of a vpnc process
+        format_down = ""
         pidfile = "/var/run/vpnc/pid"
 }
 
 path_exists VPN {
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        format_down = ""
         path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
@@ -77,4 +87,12 @@ disk "/" {
         /* low_threshold = 10 */
         /* thershold_type = percentage_free */
         format = "Free: %free (%percentage_free)"
+}
+
+volume master {
+  format = "🔊 %volume"
+  format_muted = "🔇 %volume"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
 }
