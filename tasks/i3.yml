@@ -7,8 +7,9 @@
   apt: name=xdotool state=installed
 
 # alternative i3 application launcher
-- name: Install rofi (app launcher)
-  apt: name=rofi state=installed
+# not in debian stable.
+# - name: Install rofi (app launcher)
+#   apt: name=rofi state=installed
 
 - name: Create i3 config directories
   sudo: false
@@ -31,9 +32,10 @@
 # This fix adds a .desktop file which will be picked up by the i3 application
 # launcher instead of the default.
 #
-- name: Fix Nautilus in i3
-  sudo: false
-  template: src=templates/nautilus.desktop dest=/home/{{user}}/.local/share/applications
+# no folder in debian
+# - name: Fix Nautilus in i3
+#   sudo: false
+#   template: src=templates/nautilus.desktop dest=/home/{{user}}/.local/share/applications
 
 # Compton prevents screen tearing which happens when the screen updates a lot,
 # e.g. scrolling or watching videos
@@ -55,6 +57,8 @@
   sudo: true
   apt: name={{item}} state=installed
   with_items:
+    - x-window-system-core
+    - gnome-core
     - gnome-panel
     - gnome-session
     - gnome-settings-daemon

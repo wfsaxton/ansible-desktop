@@ -42,8 +42,8 @@
 # - name: exec ntpdate
 #   command: ntpdate-debian
 #
-- name: Sync time
-  command: ntpdate pool.ntp.org
+# - name: Sync time
+#   command: ntpdate pool.ntp.org
 # }
 
 # FIXME: this fails on Vagrant because we are connecting via
@@ -53,11 +53,13 @@
 # - name: Set US keyboard layout
 #   command: setxkbmap us
 
-- name: Set locale
-  command: update-locale LANG=en_GB.UTF-8 LANGUAGE=en_GB
-
-- name: Set locale
-  lineinfile: dest=/etc/environment regexp="^LANG=" line="LANG=en_GB.UTF-8"
-
-- name: Set locale
-  lineinfile: dest=/etc/environment regexp="^LC_ALL=" line="LC_ALL=en_GB.UTF-8"
+# FIXME: not working on debian, only US locale installed. dkpg-reconfigure
+# locale let pick another, but it is interactive... preseed?
+# - name: Set locale
+#   command: update-locale LANG=en_GB.UTF-8 LANGUAGE=en_GB
+#
+# - name: Set locale
+#   lineinfile: dest=/etc/environment regexp="^LANG=" line="LANG=en_GB.UTF-8"
+#
+# - name: Set locale
+#   lineinfile: dest=/etc/environment regexp="^LC_ALL=" line="LC_ALL=en_GB.UTF-8"

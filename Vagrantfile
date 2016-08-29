@@ -7,11 +7,14 @@ wait_for_apt_lock () {
 }
 sudo apt-get remove unattended-upgrades -y
 wait_for_apt_lock
-sudo add-apt-repository ppa:ansible/ansible
+sudo apt-get install software-properties-common -y
+wait_for_apt_lock
+# FIXME: debian needs to install from source
+# sudo add-apt-repository ppa:ansible/ansible
 wait_for_apt_lock
 sudo apt-get update -y
 wait_for_apt_lock
-sudo apt-get install git vim ansible -y
+# sudo apt-get install git vim ansible -y
 
 cp /vagrant/setup.yml /vagrant/setup_vagrant.yml
 cp /vagrant/vars.yml /vagrant/vars_vagrant.yml
@@ -27,8 +30,9 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   # https://atlas.hashicorp.com/boxcutter/boxes/ubuntu1604-desktop
-  config.vm.box = "boxcutter/ubuntu1604-desktop"
+  # config.vm.box = "boxcutter/ubuntu1604-desktop"
   # config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "debian/jessie64"
 
   # config.vm.provision "ansible" do |ansible|
   #   ansible.playbook = "setup.yml"
