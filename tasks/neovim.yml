@@ -18,7 +18,7 @@
 
 - name: Add NeoVIM configuration
   sudo: false
-  git: repo=https://github.com/krisleech/neovim-config.git
+  git: repo=git@github.com:krisleech/neovim-config.git
        dest=/home/{{user}}/.config/nvim
        accept_hostkey=yes
   when: stat_nvim.stat.exists == False
