@@ -15,7 +15,7 @@
   get_url:
     url: https://github.com/postmodern/ruby-install/archive/v{{ ruby_install_version }}.tar.gz
     dest: /usr/src/ruby-install-{{ ruby_install_version }}.tar.gz
-  when: stat_ruby_install.stat.exists is not defined
+  when: stat_ruby_install.stat.exists == False
   register: ruby_install_downloaded
 
 - name: Extract ruby-install
