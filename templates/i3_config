@@ -178,5 +178,5 @@ client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 exec --no-startup-id setxkbmap us
 exec --no-startup-id dropbox start
-exec --no-startup-id compton -CGb
+exec --no-startup-id compton -CGb --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/desktop.jpeg
