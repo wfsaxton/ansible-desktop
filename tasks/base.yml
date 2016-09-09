@@ -13,6 +13,19 @@
     - dev
     - bin
 
+- name: Build tools
+  apt: name={{item}} state=installed
+  items:
+    - libtool
+    -  libtool-bin
+    -  autoconf
+    -  automake
+    -  cmake
+    -  g++
+    -  pkg-config
+    -  unzip
+
+
 - name: Install ectkeeper
   apt: name=etckeeper state=installed
   register: etckeeper_installed
@@ -42,8 +55,8 @@
 # - name: exec ntpdate
 #   command: ntpdate-debian
 #
-- name: Sync time
-  command: ntpdate pool.ntp.org
+#- name: Sync time
+  #command: ntpdate pool.ntp.org
 # }
 
 # FIXME: this fails on Vagrant because we are connecting via
