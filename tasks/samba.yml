@@ -1,0 +1,14 @@
+# allows sharing of files on the LAN (folder can be shared within nautilus)
+#
+
+- name: 'Install Samba'
+  apt: name=samba state=installed
+
+- name: Create share directory
+  become: no
+  file: path=/home/{{user}}/share state=directory mode=0777
+
+- name: Add README to share
+  sudo: false
+  template: src=templates/share_README dest=/home/{{user}}/share/README
+
