@@ -75,7 +75,9 @@ source /usr/local/share/chruby/auto.sh
 # file containing anything not kept in version control
 source ~/.zshrc.local
 
-alias be=bundle exec
+alias be="bundle exec"
 
 # open the current directory in file manager
-alias here="xdg-open ."
+alias here='xdg-open $PWD'
+# open an new terminal in the current directory
+alias term='nohup gnome-terminal --working-directory=$PWD >&/dev/null'
