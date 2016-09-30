@@ -19,11 +19,13 @@
     - include: tasks/fonts.yml tags=fonts
     - include: tasks/zsh.yml tags=zsh
     - include: tasks/bash.yml tags=bash
-    - include: tasks/chruby.yml tags=ruby
-    - include: tasks/ruby-install.yml tags=ruby
-    - include: tasks/ruby.yml tags=ruby
+    - include: tasks/chruby.yml tags=ruby,lang
+    - include: tasks/ruby-install.yml tags=ruby,lang
+    - include: tasks/ruby.yml tags=ruby,lang
+    - include: tasks/javascript.yml tags=js,lang
     - include: tasks/phantomjs.yml tags=dev
     - include: tasks/chrome.yml tags=apps
+    - include: tasks/opera.yml tags=apps
     - include: tasks/tor.yml tags=apps
     - include: tasks/pass.yml tags=apps
     - include: tasks/scnsht.yml tags=apps
