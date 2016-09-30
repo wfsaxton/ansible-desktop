@@ -24,15 +24,15 @@
   copy: src=templates/my.cnf dest=/home/{{user}}/.my.cnf
 
 # http://mycli.net/
-- name: Install MyCLI
-  apt: name=mycli state=installed
+#- name: Install MyCLI
+#  apt: name=mycli state=installed
 
-- name: Copy myCLI configuration
-  sudo: false
-  copy: src=templates/myclirc dest=/home/{{user}}/.myclirc
+#- name: Copy myCLI configuration
+#  sudo: false
+#  copy: src=templates/myclirc dest=/home/{{user}}/.myclirc
 
-- name: Install MySQL Workbench
-  apt:  name=mysql-workbench state=installed
+#- name: Install MySQL Workbench
+#  apt:  name=mysql-workbench state=installed
 
 - name: Symlink MySQL socket
   sudo: false

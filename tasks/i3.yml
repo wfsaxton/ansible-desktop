@@ -1,14 +1,15 @@
 ---
 - name: install i3 Window Manager
-  apt: name=i3 state=installed
+  apt: name=i3 state=installed default_release=backports-jessie
 
   # xdotool is used in i3 config to map Super+c to Ctrl+c etc.
 - name: install xdotool
   apt: name=xdotool state=installed
 
 # alternative i3 application launcher
-- name: Install rofi (app launcher)
-  apt: name=rofi state=installed
+# FIXME: not in debian
+#- name: Install rofi (app launcher)
+#  apt: name=rofi state=installed
 
 - name: Create i3 config directories
   sudo: false
@@ -52,13 +53,14 @@
   copy: src=templates/wallpapers/desktop.jpeg dest=/usr/share/backgrounds
 
 # i3 over Gnome
-- name: Install Gnome
+# FIXME: these are not needed since MATE has mate-setting-daemon etc.
+- name: Install Gnome compontents
   sudo: true
   apt: name={{item}} state=installed
   with_items:
     # - gnome-panel
-    - gnome-session
-    - gnome-settings-daemon
+    #- gnome-session
+    #- gnome-settings-daemon
 
 - name: Gnome config
   sudo: true

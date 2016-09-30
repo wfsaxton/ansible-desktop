@@ -1,0 +1,21 @@
+i3 on MATE
+
+dconf settings
+
+org.mate.background.show-desktop-icons false
+org.mate.background.draw-background false
+org.mate.session.required-components.windowmanger i3
+org.mate.session.required-components.panel ''  <- if you dont want top panels (they are pointless)
+
+All the tasks which use Ubuntu PPA's need fixing.
+
+All tasks which try and install software not in Debain need fixing, e.g. rofi.
+
+Consider backports for some software to get newer versions.
+
+
+
+
+
+
+
