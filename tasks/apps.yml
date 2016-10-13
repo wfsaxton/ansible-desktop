@@ -48,3 +48,11 @@
   sudo: true
   apt: deb=https://release.gitkraken.com/linux/gitkraken-amd64.deb state=installed
   when: git_kraken_stat.stat.exists == False
+
+- name: Install Screenfetch
+  sudo: true
+  apt: name=screenfetch state=installed
+
+- name: Install Alarm Clock
+  sudo: true
+  apt: name=alarm-clock-applet state=installed
