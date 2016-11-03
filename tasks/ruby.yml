@@ -18,3 +18,8 @@
 
 - name: Install system Ruby
   apt: name=ruby state=installed
+
+- name: Persist IRb history (.irbrc)
+  sudo: false
+  template: src=templates/irbrc dest=/home/{{user}}/.irbrc
+
