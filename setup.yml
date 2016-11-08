@@ -46,3 +46,4 @@
     - include: tasks/clamav.yml tags=secops
     - include: tasks/keybase.yml tags=secops
     - include: tasks/dotfiles.yml tags=dotfiles
+    - include: tasks/sec.yml tags=apps
