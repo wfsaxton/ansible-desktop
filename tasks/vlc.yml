@@ -1,0 +1,3 @@
+- name: Install VLC Media Player
+  sudo: true
+  apt: name=vlc state=installed
