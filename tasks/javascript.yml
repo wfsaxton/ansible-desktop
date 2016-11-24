@@ -1,0 +1,18 @@
+---
+# Install Javascript tools
+
+- name: Install Node
+  apt: name=nodejs state=latest
+  sudo: true
+
+- name: Install npm
+  apt: name=npm state=latest
+  sudo: true
+
+- name: Symlink nodejs to node
+  sudo: true
+  file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
+
+- name: Install Coffeescript
+  apt: name=coffeescript state=installed
+  sudo: true
