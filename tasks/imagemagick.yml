@@ -1,0 +1,6 @@
+---
+- name: Install Imagemagick (+ headers)
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - imagemagick
+    - libmagickwand-dev
