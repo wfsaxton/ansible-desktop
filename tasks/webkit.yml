@@ -1,4 +1,7 @@
 ---
-- name: Install Webkit
+- name: Install Webkit Development Headers
   sudo: true
-  apt: name=libwebkit-dev state=installed
+  apt: name={{ item }} state=installed
+  with_items:
+    - libwebkit-dev
+    - libqtwebkit-dev
