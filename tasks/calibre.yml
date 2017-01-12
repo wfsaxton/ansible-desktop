@@ -1,0 +1,3 @@
+- name: install Calibre (e-book reader)
+  apt: pkg=calibre state=installed
+

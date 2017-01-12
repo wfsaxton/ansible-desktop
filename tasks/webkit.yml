@@ -1,0 +1,4 @@
+---
+- name: Install Webkit
+  sudo: true
+  apt: name=libwebkit-dev state=installed

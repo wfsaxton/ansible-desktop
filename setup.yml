@@ -11,6 +11,7 @@
     - include: tasks/samba.yml tags=base
     - include: tasks/ssh.yml tags=base
     - include: tasks/apps.yml tags=apps
+    - include: tasks/calibre.yml tags=apps
     - include: tasks/vlc.yml tags=apps
     - include: tasks/yubikey.yml tags=secops
     - include: tasks/dropbox.yml tags=apps
@@ -25,6 +26,7 @@
     - include: tasks/ruby.yml tags=ruby,lang
     - include: tasks/javascript.yml tags=js,lang
     - include: tasks/phantomjs.yml tags=dev
+    - include: tasks/webkit.yml tags=dev
     - include: tasks/chrome.yml tags=apps
     - include: tasks/opera.yml tags=apps
     - include: tasks/tor.yml tags=apps
