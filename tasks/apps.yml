@@ -6,6 +6,7 @@
 # This part of software is released under the terms of the GPLv3 license.
 #
 ---
+
 - name: install system apps
   apt: pkg={{ item }} state=installed
   with_items:
@@ -28,12 +29,12 @@
 
 - name: Install FZF
   sudo: false
-  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/0.13.3/fzf-0.13.3-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf copy=no
+  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/{{ zfz_version }}/fzf-{{ zfz_version }}-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf-{{ zfz_version }} copy=no
   register: downloaded_fzf
 
 - name: Symlink FZF
   sudo: false
-  file: src=/home/{{user}}/bin/fzf-0.13.3-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
+  file: src=/home/{{user}}/bin/fzf-{{ zfz_version }}-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
   when: downloaded_fzf.changed
 
 - name: Install selecta
