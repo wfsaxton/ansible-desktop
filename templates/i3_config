@@ -176,10 +176,15 @@ client.focused_inactive #2b2b2b #2b2b2b #ffffff #2b2b2b
 client.unfocused        #2b2b2b #2b2b2b #ffffff #2b2b2b
 client.urgent           #900000 #900000 #ffffff #2b2b2b
 
+for_window [class="Thunderbird"] move container to workspace 2
+for_window [class="Alarms"] move container to workspace 2
+
 # /usr/bin/gnome-keyring-daemon --start --foreground --components=secrets
 # gpg-agent --homedir /home/kris/.gnupg --use-standard-socket --daemon
 exec --no-startup-id setxkbmap us
 exec --no-startup-id dropbox start
 exec --no-startup-id compton -CGb --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale /usr/share/backgrounds/desktop.jpeg
-exec --no-startup-id i3-msg 'workspace 2; exec alarm-clock-applet; workspace 1'
+exec --no-startup-id i3-msg 'workspace 2; exec alarm-clock-applet;'
+exec --no-startup-id i3-msg 'exec thunderbird;'
+exec --no-startup-id i3-msg 'workspace 1;'
