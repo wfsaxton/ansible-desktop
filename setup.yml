@@ -21,6 +21,7 @@
     - include: tasks/fonts.yml tags=fonts
     - include: tasks/zsh.yml tags=zsh
     - include: tasks/bash.yml tags=bash
+    - include: tasks/clojure.yml tags=clojure,lang
     - include: tasks/chruby.yml tags=ruby,lang
     - include: tasks/ruby-install.yml tags=ruby,lang
     - include: tasks/ruby.yml tags=ruby,lang
@@ -44,7 +45,7 @@
     - include: tasks/virtualbox.yml tags=dev
     - include: tasks/imagemagick.yml tags=apps
     - include: tasks/test.yml tags=test
-    - include: tasks/rocketchat.yml tags=chat
+    # - include: tasks/rocketchat.yml tags=chat
     - include: tasks/databases.yml tags=databases
     - include: tasks/gpg.yml tags=secops
     - include: tasks/clamav.yml tags=secops
