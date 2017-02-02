@@ -11,6 +11,7 @@
     - include: tasks/samba.yml tags=base
     - include: tasks/ssh.yml tags=base
     - include: tasks/apps.yml tags=apps
+    - include: tasks/ngrok.yml tags=dev
     - include: tasks/calibre.yml tags=apps
     - include: tasks/vlc.yml tags=apps
     - include: tasks/yubikey.yml tags=secops
