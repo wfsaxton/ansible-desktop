@@ -5,3 +5,10 @@
     url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     dest: /home/{{user}}/bin/lein
     mode: 0755
+
+- name: Add PPA for Planck
+  sudo: true
+  apt_repository: repo='ppa:mfikes/planck' state=present
+
+- name: Install Planck (ClojureScript REPL)
+  apt: name=planck state=installed
