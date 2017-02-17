@@ -26,15 +26,15 @@
     - ackrc
     - agignore
 
-
+      # https://github.com/junegunn/fzf/issues/834
 - name: Install FZF
   sudo: false
-  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/{{ zfz_version }}/fzf-{{ zfz_version }}-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf-{{ zfz_version }} copy=no
+  unarchive: src=https://github.com/junegunn/fzf-bin/releases/download/{{ fzf_version }}/fzf-{{ fzf_version }}-linux_amd64.tgz dest=/home/{{user}}/bin creates=/home/{{user}}/bin/fzf-{{ fzf_version }} copy=no
   register: downloaded_fzf
 
 - name: Symlink FZF
   sudo: false
-  file: src=/home/{{user}}/bin/fzf-{{ zfz_version }}-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
+  file: src=/home/{{user}}/bin/fzf-{{ fzf_version }}-linux_amd64 dest=/home/{{user}}/bin/fzf state=link
   when: downloaded_fzf.changed
 
 - name: Install selecta
