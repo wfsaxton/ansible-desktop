@@ -71,6 +71,7 @@ export SSH_KEY_PATH="~/.ssh/identity"
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+source /usr/local/share/gem_home/gem_home.sh
 
 # file containing anything not kept in version control
 source ~/.zshrc.local

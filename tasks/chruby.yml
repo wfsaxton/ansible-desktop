@@ -1,4 +1,4 @@
-# Install chruby
+# Install chruby and gem_home
 #
 #
 ---
@@ -31,3 +31,28 @@
 - name: Clean up chruby sources
   shell: rm -rf /usr/src/chruby-*
   when: chruby_downloaded.changed
+
+- name: Check gem_home  installed
+  stat: path=/usr/local/share/gem_home
+  register: stat_gem_home
+
+- name: Download gem_home
+  get_url:
+    url: https://github.com/postmodern/gem_home/archive/v{{ gem_home_version }}.tar.gz
+    dest: /usr/src/gem_home-{{ gem_home_version }}.tar.gz
+  when: stat_gem_home.stat.isdir is not defined
+  register: gem_home_downloaded
+
+- name: Extract gem_home
+  shell: tar -C /usr/src -xzvf /usr/src/gem_home-{{ gem_home_version }}.tar.gz
+  when: gem_home_downloaded.changed
+  register: gem_home_extracted
+
+- name: Install gem_home
+  shell: cd /usr/src/gem_home-{{ gem_home_version }}/ && make install
+  when: gem_home_extracted | changed
+  register: gem_home_installed
+
+# - name: Clean up gem_home sources
+#   shell: rm -rf /usr/src/gem_home-*
+#   when: gem_home_downloaded.changed
