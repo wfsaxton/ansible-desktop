@@ -1,0 +1,10 @@
+---
+- name: Install Python Pip
+  sudo: true
+  apt: pkg={{ item }}
+  with_items:
+    - python-dev
+    - python-pip
+
+- name: Install Galileo (Fitbit)
+  pip: name=galileo
