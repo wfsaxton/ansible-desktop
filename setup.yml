@@ -9,6 +9,7 @@
   tasks:
     - include: tasks/base.yml tags=base
     - include: tasks/samba.yml tags=base
+    - include: tasks/webdev.yml tags=dev
     - include: tasks/ssh.yml tags=base
     - include: tasks/apps.yml tags=apps
     - include: tasks/ngrok.yml tags=dev
