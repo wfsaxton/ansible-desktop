@@ -12,3 +12,6 @@
 
 - name: Install Planck (ClojureScript REPL)
   apt: name=planck state=installed
+
+- name: Chicken (Scheme to C)
+  apt: name=chicken-bin state=installed
