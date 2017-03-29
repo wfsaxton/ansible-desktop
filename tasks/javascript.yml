@@ -9,6 +9,14 @@
   apt: name=npm state=latest
   sudo: true
 
+- name: Create npm global directory
+  sudo: false
+  file: path=~/.npm-global state=directory
+
+- name: Change npm default directory
+  sudo: false
+  shell: npm config set prefix '~/.npm-global'
+
 - name: Symlink nodejs to node
   sudo: true
   file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
