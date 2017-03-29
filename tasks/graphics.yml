@@ -4,3 +4,6 @@
   with_items:
     - imagemagick
     - libmagickwand-dev
+
+- name: Install GraphViz
+  apt: pkg=graphviz state=installed
