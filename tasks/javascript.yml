@@ -9,6 +9,9 @@
   apt: name=npm state=latest
   sudo: true
 
+###############################################################################
+# https://docs.npmjs.com/getting-started/fixing-npm-permissions
+###############################################################################
 - name: Create npm global directory
   sudo: false
   file: path=~/.npm-global state=directory
@@ -16,6 +19,7 @@
 - name: Change npm default directory
   sudo: false
   shell: npm config set prefix '~/.npm-global'
+###############################################################################
 
 - name: Symlink nodejs to node
   sudo: true
