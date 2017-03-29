@@ -13,8 +13,8 @@
 
 - name: Install NeoVIM
   sudo: true
-  apt: name=neovim state=installed
-  when: stat_nvim.stat.exists == False
+  apt: name=neovim state=latest
+  # when: stat_nvim.stat.exists == False
 
 - name: Add NeoVIM configuration
   sudo: false
