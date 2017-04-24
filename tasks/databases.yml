@@ -43,3 +43,7 @@
 
 - name: Install SQLite3 development headers
   apt: name=libsqlite3-dev state=installed
+
+- name: Install RabbitMQ
+  sudo: true
+  apt: name=rabbitmq-server state=installed
