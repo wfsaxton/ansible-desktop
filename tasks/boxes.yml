@@ -1,0 +1,3 @@
+- name: Create
+- name: Install Gnome Boxes (Virtual machine)
+  apt: name=gnome-boxes state=installed

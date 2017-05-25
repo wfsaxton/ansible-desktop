@@ -8,6 +8,7 @@
 
   tasks:
     - include: tasks/base.yml tags=base
+    - include: tasks/network.yml tags=base
     - include: tasks/samba.yml tags=base
     - include: tasks/webdev.yml tags=dev
     - include: tasks/ssh.yml tags=base
@@ -46,6 +47,7 @@
     - include: tasks/gitencrypt.yml tags=dev
     - include: tasks/vagrant.yml tags=dev
     - include: tasks/virtualbox.yml tags=dev
+    - include: tasks/boxes.yml tags=dev
     - include: tasks/imagemagick.yml tags=apps
     - include: tasks/test.yml tags=test
     # - include: tasks/rocketchat.yml tags=chat
