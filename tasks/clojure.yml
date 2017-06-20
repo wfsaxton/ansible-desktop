@@ -6,6 +6,10 @@
     dest: /home/{{user}}/bin/lein
     mode: 0755
 
+- name: Install lein user profiles.clj
+  sudo: false
+  template: src=templates/lein-profiles.clj dest=/home/{{user}}/.lein/lein-profiles.clj
+
 - name: Add PPA for Planck
   sudo: true
   apt_repository: repo='ppa:mfikes/planck' state=present
@@ -15,3 +19,4 @@
 
 - name: Chicken (Scheme to C)
   apt: name=chicken-bin state=installed
+
