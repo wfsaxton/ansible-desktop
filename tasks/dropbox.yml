@@ -9,7 +9,7 @@
 
 - name: Install dropbox dependencies
   apt: name=python-gpgme
-  become: root
+  sudo: true
   when: dropbox_check_deb.rc == 1
 
 - name: Download dropbox
@@ -20,7 +20,7 @@
 
 - name: Install dropbox
   apt: deb="/home/{{user}}/Downloads/dropbox.deb"
-  become: root
+  sudo: true
   when: dropbox_check_deb.rc == 1
 
 - name: Restart Nautilus
