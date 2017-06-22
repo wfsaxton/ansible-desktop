@@ -17,3 +17,8 @@
     - software-properties-common
     - docker-ce
 
+- name: Install Docker Compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.14.0/docker-compose-Linux-x86_64
+    dest: "/home/{{user}}/bin/docker-compose"
+    mode: 0755
