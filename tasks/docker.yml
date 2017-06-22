@@ -1,0 +1,19 @@
+
+- name: Add Docker PPA key
+  sudo: true
+  apt_key: url=https://download.docker.com/linux/ubuntu/gpg state=present
+
+- name: Add Docker PPA
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ubuntu_release_name }} stable"
+  sudo: true
+
+- name: Install Docker
+  apt: name={{item}}
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - docker-ce
+
