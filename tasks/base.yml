@@ -74,3 +74,10 @@
 
 - name: Set locale
   lineinfile: dest=/etc/environment regexp="^LC_ALL=" line="LC_ALL=en_GB.UTF-8"
+
+- name: Install atop
+  sudo: true
+  apt: name=atop state=installed
+
+- name: atop service should be running
+  service: name=atop state=running enabled=yes
