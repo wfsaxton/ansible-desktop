@@ -47,3 +47,11 @@
 - name: Install RabbitMQ
   sudo: true
   apt: name=rabbitmq-server state=installed
+
+- name: Install Postgres Database
+  sudo: true
+  apt: pkg=$item state=installed
+  with_items:
+    - postgresql
+    - postgresql-contrib
+    - libpq-dev
