@@ -19,7 +19,7 @@
 #    - include: tasks/yubikey.yml tags=secops
 #    - include: tasks/dropbox.yml tags=apps
 #    - include: tasks/scrot.yml tags=apps
-    - include: tasks/skype.yml tags=apps
+#    - include: tasks/skype.yml tags=apps
 #    - include: tasks/terminator.yml tags=apps
     - include: tasks/fonts.yml tags=fonts
     - include: tasks/zsh.yml tags=zsh
