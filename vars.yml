@@ -1,12 +1,12 @@
 ---
-user: kris
-git_signing_key: 3ABC74851F7CCC88
-git_email: kris.leech@gmail.com
-git_name: Kris Leech
+user: wfsaxton
+#git_signing_key: 3ABC74851F7CCC88
+git_email: saxton@gmail.com
+git_name: William Saxton
 dotfiles_dir: /home/$user/dev/dotfiles
-chruby_version: 0.3.9
-gem_home_version: 0.1.0
-ruby_install_version: 0.6.0
-rocketchat_version: 1.3.1
-fzf_version: 0.16.4
-ubuntu_release_name: xenial
+#chruby_version: 0.3.9
+#gem_home_version: 0.1.0
+#ruby_install_version: 0.6.0
+#rocketchat_version: 1.3.1
+#fzf_version: 0.16.4
+#ubuntu_release_name: xenial
