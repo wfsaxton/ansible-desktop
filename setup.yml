@@ -61,3 +61,4 @@
 #    - include: tasks/hardware.yml tags=drivers
 #    - include: tasks/sec.yml tags=apps
 #    - include: tasks/fitbit.yml tags=apps
+    - include: tasks/slack.yml tags=dev
