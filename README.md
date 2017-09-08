@@ -4,8 +4,8 @@ A simple and quick way to provision your development machine.
 
 Tested with:
 
-* Ansible 2.1
-* Ubuntu 16.01
+* Ansible 2.3
+* Mint 18.2
 
 ## Features
 
@@ -51,7 +51,7 @@ You can also install Ansible 2.1 from [source](http://docs.ansible.com/ansible/i
 Edit `vars.yml` and change the `user` var:
 
 ```yaml
-user: kris
+user: wfsaxton
 ```
 
 ## Usage

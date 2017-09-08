@@ -41,6 +41,7 @@
 #    - include: tasks/numix.yml tags=desktop
 #    - include: tasks/i3.yml tags=desktop
 #    - include: tasks/neovim.yml tags=dev
+    - include: tasks/sublimetext.yml tags=dev
 #    - include: tasks/spacemacs.yml tags=dev
 #    - include: tasks/tmux.yml tags=dev
     - include: tasks/git.yml tags=dev
