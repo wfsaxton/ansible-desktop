@@ -69,9 +69,9 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/identity"
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-source /usr/local/share/gem_home/gem_home.sh
+#source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/auto.sh
+#source /usr/local/share/gem_home/gem_home.sh
 
 # https://github.com/postmodern/gem_home/issues/7
 unsetopt auto_pushd
