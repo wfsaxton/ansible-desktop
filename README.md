@@ -23,6 +23,8 @@ Tested with:
 - Yunikey support
 - Dotfiles
 - Coding fonts
+- Slack
+- Sublimetext
 - and more...
 
 ## Installation
