@@ -1,0 +1,10 @@
+# Install oh my zsh
+---
+- name: download oh-my-sh
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/ohmyzsh-install.sh
+    mode: 0550
+
+- name: install oh-my-sh
+  shell: /tmp/ohmyzsh-install.sh
