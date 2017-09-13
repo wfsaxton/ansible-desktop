@@ -27,7 +27,8 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   # https://atlas.hashicorp.com/boxcutter/boxes/ubuntu1604-desktop
-  config.vm.box = "boxcutter/ubuntu1604-desktop"
+  config.vm.box = "artem-sidorenko/mint-18.2-cinnamon"
+  config.vm.box_version = "0.0.1"
   # config.vm.box = "bento/ubuntu-16.04"
 
   # config.vm.provision "ansible" do |ansible|
