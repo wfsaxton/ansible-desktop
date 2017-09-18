@@ -95,3 +95,6 @@
     - include: tasks/slack.yml 
       tags:
         - dev
+    - include: tasks/display_home.yml
+      tags: 
+        - display
