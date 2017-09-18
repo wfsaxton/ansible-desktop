@@ -1,6 +1,8 @@
 <monitors version="1">
   <configuration>
       <clone>no</clone>
+      <output name="DVI-I-0">
+      </output>
       <output name="DVI-I-1">
           <vendor>ACI</vendor>
           <product>0x24e1</product>
@@ -9,13 +11,23 @@
           <height>1080</height>
           <rate>60</rate>
           <x>2560</x>
-          <y>213</y>
+          <y>145</y>
           <rotation>normal</rotation>
           <reflect_x>no</reflect_x>
           <reflect_y>no</reflect_y>
           <primary>no</primary>
       </output>
+      <output name="HDMI-0">
+      </output>
+      <output name="DP-0">
+      </output>
       <output name="DP-1">
+      </output>
+      <output name="DP-2">
+      </output>
+      <output name="DP-3">
+      </output>
+      <output name="DP-4">
           <vendor>ACI</vendor>
           <product>0x27b1</product>
           <serial>0x000107b2</serial>
@@ -29,11 +41,7 @@
           <reflect_y>no</reflect_y>
           <primary>yes</primary>
       </output>
-      <output name="DP-2">
-      </output>
-      <output name="HDMI-1">
-      </output>
-      <output name="DP-3">
+      <output name="DP-5">
       </output>
   </configuration>
 </monitors>
