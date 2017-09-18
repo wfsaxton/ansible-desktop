@@ -1,59 +1,3 @@
-# To support dual monitors (home instructions)
-
-Copy the following to /home/wfsaxton/.config/monitors.xml
-
-```
-<monitors version="1">
-  <configuration>
-      <clone>no</clone>
-      <output name="DVI-I-1">
-          <vendor>ACI</vendor>
-          <product>0x24e1</product>
-          <serial>0x01010101</serial>
-          <width>1920</width>
-          <height>1080</height>
-          <rate>60</rate>
-          <x>2560</x>
-          <y>213</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>no</primary>
-      </output>
-      <output name="DP-1">
-          <vendor>ACI</vendor>
-          <product>0x27b1</product>
-          <serial>0x000107b2</serial>
-          <width>2560</width>
-          <height>1440</height>
-          <rate>60</rate>
-          <x>0</x>
-          <y>0</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>yes</primary>
-      </output>
-      <output name="DP-2">
-      </output>
-      <output name="HDMI-1">
-      </output>
-      <output name="DP-3">
-      </output>
-  </configuration>
-</monitors>
-```
-
-# To support external monitors
-
-```
-$ cvt 2560 1440 60
-# 2560x1440 59.96 Hz (CVT 3.69M9) hsync: 89.52 kHz; pclk: 312.25 MHz
-Modeline "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
-$ xrandr --newmode "2560x1440@60" 241,500 2560 2608 2640 2720 1440 1443 1448 1481 +hsync -vsync
-$ xrandr --addmode DP1 "2560x1440@60"
-```
-
 # Ansible for desktop
 
 A simple and quick way to provision your development machine.
@@ -97,7 +41,7 @@ Note: We use the Ansible PPA because the Ubuntu repository contains the older
 sudo add-apt-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install git vim ansible
-git clone git@github.com:krisleech/ansible-desktop.git
+git clone git@github.com:wfsaxton/ansible-desktop.git
 cd ansible-desktop
 ```
 
