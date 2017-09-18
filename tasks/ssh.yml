@@ -1,3 +1,10 @@
+- name: Create .ssh
+  sudo: false
+  file:
+    path: /home/{{user}}/.ssh
+    state: directory
+    mode: 0755  
+
 - name: Copy .ssh/config
   sudo: false
   template: src=templates/ssh_config dest=/home/{{user}}/.ssh/config force=yes mode=600

@@ -14,6 +14,13 @@
     pkg: sublime-text
     state: installed
 
+- name: create sublimetext preferences directory
+  sudo: false
+  file:
+    path: /home/{{user}}/.config/sublime-text-3/Packages/User/
+    state: directory
+    mode: 0755
+
 - name: copying sublimetext preferences
   copy:
     src: files/sublimetext/Preferences.sublime-settings
