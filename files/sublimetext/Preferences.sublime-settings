@@ -1,6 +1,7 @@
 // Settings in here override those in "Default/Preferences.sublime-settings",
 // and are overridden in turn by syntax-specific settings.
 {
+    "font_face": "Inconsolata Medium",
     "font_size": 16,
     "rulers": [100],
     "translate_tabs_to_spaces": true,
