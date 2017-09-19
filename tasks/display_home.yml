@@ -11,6 +11,7 @@
   sudo: true
   apt_repository: 
     repo: ppa:graphics-drivers
+    codename: xenial
     state: present
 
 - name: Installing NVIDIA drivers

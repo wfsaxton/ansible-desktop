@@ -6,3 +6,7 @@
   apt: 
     deb: https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb?_ga=2.187737121.88427609.1505220794-377472331.1505220794
     state: installed
+
+- name: Install Vagrant plugins
+  sudo: false
+  shell: vagrant plugin install vagrant-notify-forwarder
