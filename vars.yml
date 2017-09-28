@@ -5,6 +5,7 @@ git_email: saxton@gmail.com
 git_name: William Saxton
 dotfiles_dir: /home/$user/dev/dotfiles
 slack_url: https://downloads.slack-edge.com/linux_releases/slack-desktop-2.7.1-amd64.deb
+vb_extensions_url: http://download.virtualbox.org/virtualbox/5.1.28/Oracle_VM_VirtualBox_Extension_Pack-5.1.28-117968.vbox-extpack
 #chruby_version: 0.3.9
 #gem_home_version: 0.1.0
 #ruby_install_version: 0.6.0

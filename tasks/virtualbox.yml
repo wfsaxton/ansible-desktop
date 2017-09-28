@@ -1,10 +1,28 @@
 ---
 # Install Virtualbox
 
-- name: Add apt package source
+- name: Install vitualbox for Ubuntu
   sudo: true
   apt: 
     deb: http://download.virtualbox.org/virtualbox/5.1.26/virtualbox-5.1_5.1.26-117224~Ubuntu~xenial_amd64.deb 
     state: installed
+# https://forums.virtualbox.org/viewtopic.php?f=7&t=77363&start=15
+
+- name: Check if virtualbox extensions is downloaded
+  command: /usr/bin/vboxmanage list extpacks
+  register: vbe_check
+  failed_when: vbe_check.rc > 1
+  changed_when: vbe_check.rc == 1
+
+- name: Download virtualbox extensions
+  get_url: 
+    url="{{ vb_extensions_url }}"
+    dest="/home/{{user}}/Downloads/vbe.vbox-extpack"
+  when: vbe_check.rc == 1
+
+- name: Install virtualbox extensions
+  sudo: true
+  command: /usr/bin/vboxmanage extpack install /home/{{user}}/Downloads/vbe.vbox-extpack --accept-license=715c7246dc0f779ceab39446812362b2f9bf64a55ed5d3a905f053cfab36da9e
+  when: vbe_check.rc == 1
 
 # https://forums.virtualbox.org/viewtopic.php?f=7&t=77363&start=15
