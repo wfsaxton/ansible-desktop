@@ -42,6 +42,9 @@
 #    - include: tasks/chruby.yml tags=ruby,lang
 #    - include: tasks/ruby-install.yml tags=ruby,lang
 #    - include: tasks/ruby.yml tags=ruby,lang
+    - include: tasks/java.yml 
+      tags:
+        - java,lang
     - include: tasks/javascript.yml 
       tags:
         - js,lang
