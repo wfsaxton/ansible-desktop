@@ -50,7 +50,7 @@
         - js,lang
 #    - include: tasks/phantomjs.yml tags=dev
 #    - include: tasks/webkit.yml tags=dev
-    - include: tasks/chrome.yml 
+    - include: tasks/browsers.yml 
       tags:
         - apps
 #    - include: tasks/opera.yml tags=apps
