@@ -1,0 +1,11 @@
+# Install and configure android stuff
+---
+
+#NOTE: Unfortunately, Android SDK can not be automated
+#so all the manual stuff needs to be done after this
+
+- name: install Samsung Galaxy 6 device
+  sudo: true
+  copy:
+    src: files/android/70-android.rules
+    dest: /etc/udev/rules.d/70-android.rules

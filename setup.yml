@@ -45,6 +45,9 @@
     - include: tasks/java.yml 
       tags:
         - java,lang
+    - include: tasks/android.yml
+      tags:
+        - mobile
     - include: tasks/javascript.yml 
       tags:
         - js,lang
