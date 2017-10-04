@@ -51,6 +51,9 @@
     - include: tasks/javascript.yml 
       tags:
         - js,lang
+    - include: tasks/node.yml
+      tags:
+        - node,dev
 #    - include: tasks/phantomjs.yml tags=dev
 #    - include: tasks/webkit.yml tags=dev
     - include: tasks/browsers.yml 

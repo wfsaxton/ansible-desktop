@@ -1,0 +1,7 @@
+# Install node stuff
+
+# TODO: Install nvm, node, npm, @angular/cli globally
+
+- name: Increase inotify watches
+  sudo: true
+  copy: src=files/node/max_user_watches dest=/proc/sys/fs/inotify/max_user_watches force=yes
