@@ -1,0 +1,17 @@
+---
+- name: Install Python 2
+  become: true
+  apt:
+    name: python
+    state: installed
+
+- name: Install PIP
+  become: true
+  easy_install:
+    name: pip
+    state: present
+
+- name: Install Elastic Beanstalk CLI
+  pip:
+    name: awsebcli
+    extra_args: --user --upgrade
