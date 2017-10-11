@@ -7,16 +7,17 @@
     mode: 0755
 
 - name: Install lein user profiles.clj
-  sudo: false
   template: src=templates/lein-profiles.clj dest=/home/{{user}}/.lein/lein-profiles.clj
 
 - name: Add PPA for Planck
-  sudo: true
+  become: yes
   apt_repository: repo='ppa:mfikes/planck' state=present
 
 - name: Install Planck (ClojureScript REPL)
+  become: yes
   apt: name=planck state=installed
 
 - name: Chicken (Scheme to C)
+  become: yes
   apt: name=chicken-bin state=installed
 

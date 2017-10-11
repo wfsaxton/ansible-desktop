@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  sudo: yes
 
   vars_files:
     - vars.yml
@@ -12,18 +11,18 @@
         - base
     - import_tasks: tasks/network.yml 
       tags:
-        - base
+        - network,base
 #    - import_tasks: tasks/samba.yml tags=base
 #    - import_tasks: tasks/webdev.yml tags=dev
     - import_tasks: tasks/ssh.yml 
       tags:
-        - base
+        - ssh,base
 #    - import_tasks: tasks/apps.yml tags=apps
 #    - import_tasks: tasks/ngrok.yml tags=dev
 #    - import_tasks: tasks/calibre.yml tags=apps
     - import_tasks: tasks/vlc.yml 
       tags:
-        - apps
+        - vlc,apps
 #    - import_tasks: tasks/yubikey.yml tags=secops
 #    - import_tasks: tasks/dropbox.yml tags=apps
 #    - import_tasks: tasks/scrot.yml tags=apps
@@ -45,12 +44,12 @@
 #    - import_tasks: tasks/chruby.yml tags=ruby,lang
 #    - import_tasks: tasks/ruby-install.yml tags=ruby,lang
 #    - import_tasks: tasks/ruby.yml tags=ruby,lang
-    - import_tasks: tasks/java.yml 
-      tags:
-        - java,lang
-    - import_tasks: tasks/android.yml
-      tags:
-        - mobile
+    # - import_tasks: tasks/java.yml 
+    #   tags:
+    #     - java,lang
+    # - import_tasks: tasks/android.yml
+    #   tags:
+    #     - mobile
     - import_tasks: tasks/javascript.yml 
       tags:
         - js,lang
@@ -61,7 +60,7 @@
 #    - import_tasks: tasks/webkit.yml tags=dev
     - import_tasks: tasks/browsers.yml 
       tags:
-        - apps
+        - browsers,apps
 #    - import_tasks: tasks/opera.yml tags=apps
 #    - import_tasks: tasks/tor.yml tags=apps
 #    - import_tasks: tasks/pass.yml tags=apps
@@ -70,25 +69,27 @@
 #    - import_tasks: tasks/gnome.yml tags=desktop
 #    - import_tasks: tasks/numix.yml tags=desktop
 #    - import_tasks: tasks/i3.yml tags=desktop
-#    - import_tasks: tasks/neovim.yml tags=dev
+    # - import_tasks: tasks/neovim.yml 
+    #   tags:
+    #     - dev
     - import_tasks: tasks/sublimetext.yml 
       tags:
-        - dev
+        - sublimetext,apps,dev
 #    - import_tasks: tasks/spacemacs.yml tags=dev
 #    - import_tasks: tasks/tmux.yml tags=dev
     - import_tasks: tasks/git.yml 
       tags:
-        - dev
+        - git,dev
 #    - import_tasks: tasks/gitencrypt.yml tags=dev
     - import_tasks: tasks/vagrant.yml 
       tags:
-        - dev
+        - vagrant,dev
     - import_tasks: tasks/virtualbox.yml 
       tags:
-        - dev
+        - virtualbox,dev
     - import_tasks: tasks/heroku.yml
       tags:
-        - dev
+        - heroku,dev
 #    - import_tasks: tasks/boxes.yml tags=dev
 #    - import_tasks: tasks/docker.yml tags=dev
 #    - import_tasks: tasks/imagemagick.yml tags=apps
@@ -98,15 +99,15 @@
 #    - import_tasks: tasks/gpg.yml tags=secops
 #    - import_tasks: tasks/clamav.yml tags=secops
 #    - import_tasks: tasks/keybase.yml tags=secops
-    - import_tasks: tasks/dotfiles.yml 
-      tags:
-        - dotfiles
+    # - import_tasks: tasks/dotfiles.yml 
+    #   tags:
+    #     - dotfiles
 #    - import_tasks: tasks/hardware.yml tags=drivers
 #    - import_tasks: tasks/sec.yml tags=apps
 #    - import_tasks: tasks/fitbit.yml tags=apps
     - import_tasks: tasks/slack.yml 
       tags:
-        - dev
+        - slack,apps,dev
     - import_tasks: tasks/display_home.yml
       tags: 
         - display

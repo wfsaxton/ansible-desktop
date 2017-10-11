@@ -1,9 +1,9 @@
 - name: download heroku CLI
-  sudo: false
   get_url:
     url: https://cli-assets.heroku.com/install-ubuntu.sh
     dest: /tmp/heroku-install.sh
     mode: 0550
 
 - name: install heroku CLI
+  become: yes
   shell: /tmp/heroku-install.sh

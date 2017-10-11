@@ -7,13 +7,13 @@
 #
 
 - name: Create home directories
-  become: no
   file: path=/home/{{user}}/{{item}} state=directory mode=0755
   with_items:
     - dev
     - bin
 
 - name: Build tools
+  become: yes
   apt: name={{item}} state=installed
   items:
     - libtool
@@ -26,7 +26,8 @@
     -  unzip
 
 
-- name: Install ectkeeper
+- name: Install etckeeper
+  become: yes
   apt: name=etckeeper state=installed
   register: etckeeper_installed
 
@@ -43,12 +44,15 @@
 
 
 - name: Install NTP deamon
+  become: yes
   apt: name=ntp state=installed
 
 - name: Install ntpdate
+  become: yes
   apt: name=ntpdate state=installed
 
 - name: NTP should be running
+  become: yes
   service: name=ntp state=running enabled=yes
 
 # FIXME: this fails, locally and on VM
@@ -67,17 +71,21 @@
 #   command: setxkbmap us
 
 - name: Set locale
+  become: yes
   command: update-locale LANG=en_US.UTF-8 LANGUAGE=en_US
 
 - name: Set locale
+  become: yes
   lineinfile: dest=/etc/environment regexp="^LANG=" line="LANG=en_US.UTF-8"
 
 - name: Set locale
+  become: yes
   lineinfile: dest=/etc/environment regexp="^LC_ALL=" line="LC_ALL=en_US.UTF-8"
 
 - name: Install atop
-  sudo: true
+  become: yes
   apt: name=atop state=installed
 
 - name: atop service should be running
+  become: yes
   service: name=atop state=running enabled=yes

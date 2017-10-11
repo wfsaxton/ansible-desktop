@@ -1,11 +1,11 @@
 ---
 - name: Install Git
+  become: yes
   apt: name={{item}} state=installed
   with_items:
     - git
     - gitk
 
 - name: Copy .gitconfig
-  sudo: false
   template: src=templates/gitconfig dest=/home/{{user}}/.gitconfig force=yes
 

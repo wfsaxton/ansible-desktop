@@ -1,23 +1,24 @@
 ---
 - name: Install XClip (copy/paste for the terminal)
+  become: yes
   apt: name=xclip state=installed
 
 - name: Check NeoVIM installed
+  become: yes
   stat: path=/usr/bin/nvim
   register: stat_nvim
 
 - name: Add PPA for NeoVIM
-  sudo: true
+  become: yes
   apt_repository: repo='ppa:neovim-ppa/unstable' state=present
   when: stat_nvim.stat.exists == False
 
 - name: Install NeoVIM
-  sudo: true
+  become: yes
   apt: name=neovim state=latest
   # when: stat_nvim.stat.exists == False
 
 - name: Add NeoVIM configuration
-  sudo: false
   git: repo=git@github.com:krisleech/neovim-config.git
        dest=/home/{{user}}/.config/nvim
        accept_hostkey=yes

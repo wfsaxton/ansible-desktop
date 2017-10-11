@@ -1,4 +1,5 @@
 - name: Network tools
+  become: yes
   apt: name={{item}} state=installed
   items:
     - whois

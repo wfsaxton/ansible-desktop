@@ -13,6 +13,6 @@
   when: slack_check_deb.rc == 1
 
 - name: Install slack
+  become: yes
   apt: deb="/home/{{user}}/Downloads/slack.deb"
-  sudo: true
   when: slack_check_deb.rc == 1

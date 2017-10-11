@@ -1,12 +1,12 @@
 ---
 - name: Install Python 2
-  become: true
+  become: yes
   apt:
     name: python
     state: installed
 
 - name: Install PIP
-  become: true
+  become: yes
   easy_install:
     name: pip
     state: present
