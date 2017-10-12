@@ -10,36 +10,29 @@
       tags:
         - base
     - import_tasks: tasks/network.yml 
-      tags:
-        - network,base
+      tags: network
 #    - import_tasks: tasks/samba.yml tags=base
 #    - import_tasks: tasks/webdev.yml tags=dev
     - import_tasks: tasks/ssh.yml 
-      tags:
-        - ssh,base
+      tags: ssh
 #    - import_tasks: tasks/apps.yml tags=apps
 #    - import_tasks: tasks/ngrok.yml tags=dev
 #    - import_tasks: tasks/calibre.yml tags=apps
     - import_tasks: tasks/vlc.yml 
-      tags:
-        - vlc,apps
+      tags: vlc
 #    - import_tasks: tasks/yubikey.yml tags=secops
 #    - import_tasks: tasks/dropbox.yml tags=apps
 #    - import_tasks: tasks/scrot.yml tags=apps
 #    - import_tasks: tasks/skype.yml tags=apps
 #    - import_tasks: tasks/terminator.yml tags=apps
     - import_tasks: tasks/fonts.yml 
-      tags:
-        - fonts
+      tags: fonts
     - import_tasks: tasks/zsh.yml 
-      tags:
-        - zsh
+      tags: zsh
     - import_tasks: tasks/bash.yml 
-      tags:
-        - bash
+      tags: bash
     - import_tasks: tasks/python.yml
-      tags:
-        - python,lang
+      tags: python
 #    - import_tasks: tasks/clojure.yml tags=clojure,lang
 #    - import_tasks: tasks/chruby.yml tags=ruby,lang
 #    - import_tasks: tasks/ruby-install.yml tags=ruby,lang
@@ -51,16 +44,13 @@
     #   tags:
     #     - mobile
     - import_tasks: tasks/javascript.yml 
-      tags:
-        - js,lang
+      tags: javascript
     - import_tasks: tasks/node.yml
-      tags:
-        - node,dev
+      tags: node
 #    - import_tasks: tasks/phantomjs.yml tags=dev
 #    - import_tasks: tasks/webkit.yml tags=dev
     - import_tasks: tasks/browsers.yml 
-      tags:
-        - browsers,apps
+      tags: browsers
 #    - import_tasks: tasks/opera.yml tags=apps
 #    - import_tasks: tasks/tor.yml tags=apps
 #    - import_tasks: tasks/pass.yml tags=apps
@@ -73,23 +63,18 @@
     #   tags:
     #     - dev
     - import_tasks: tasks/sublimetext.yml 
-      tags:
-        - sublimetext,apps,dev
+      tags: sublimetext
 #    - import_tasks: tasks/spacemacs.yml tags=dev
 #    - import_tasks: tasks/tmux.yml tags=dev
     - import_tasks: tasks/git.yml 
-      tags:
-        - git,dev
+      tags: git
 #    - import_tasks: tasks/gitencrypt.yml tags=dev
     - import_tasks: tasks/vagrant.yml 
-      tags:
-        - vagrant,dev
+      tags: vagrant
     - import_tasks: tasks/virtualbox.yml 
-      tags:
-        - virtualbox,dev
+      tags: virtualbox
     - import_tasks: tasks/heroku.yml
-      tags:
-        - heroku,dev
+      tags: heroku
 #    - import_tasks: tasks/boxes.yml tags=dev
 #    - import_tasks: tasks/docker.yml tags=dev
 #    - import_tasks: tasks/imagemagick.yml tags=apps
@@ -106,8 +91,8 @@
 #    - import_tasks: tasks/sec.yml tags=apps
 #    - import_tasks: tasks/fitbit.yml tags=apps
     - import_tasks: tasks/slack.yml 
-      tags:
-        - slack,apps,dev
+      tags: slack
     - import_tasks: tasks/display_home.yml
-      tags: 
-        - display
+      tags: display
+    - import_tasks: tasks/flux.yml
+      tags: flux

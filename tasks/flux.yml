@@ -1,0 +1,12 @@
+- name: installing flux repository
+  become: yes
+  apt_repository:
+    repo: ppa:nathan-renniewaldock/flux
+    codename: xenial
+    state: present
+
+- name: installing flux
+  become: yes
+  apt:
+    pkg: fluxgui
+    state: installed
