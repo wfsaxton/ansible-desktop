@@ -2,6 +2,31 @@
 
 # TODO: Install nvm, node, npm, @angular/cli globally
 
-- name: Increase inotify watches
+- name: Check if NVM is installed
+  stat: path=/{{user}}/.nvm
+  register: stat_nvm_install
+
+- name: Download NVM
+  get_url:
+    url: https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh
+    dest: /tmp/install_nvm.sh
+  when: stat_nvm_install.stat.exists == False
+  register: nvm_install_downloaded
+
+- name: Install NVM
+  shell: /bin/sh /tmp/install_nvm.sh
+  when: nvm_install_downloaded
+
+- name: Install Node 6.9.5 and set to default
+  shell: /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 6.9.5 && nvm alias default 6.9.5"
+
+- name: Install Angular 2 CLI globally
+  npm:
+    name: "@angular/cli"
+    executable: /home/{{user}}/.nvm/versions/node/v6.9.5/bin/npm
+    global: yes
+
+- name: Increase inotify watches (fixes issues with ng/npm server file change notifications)
   become: yes
-  copy: src=files/node/max_user_watches dest=/proc/sys/fs/inotify/max_user_watches force=yes
+  shell: echo 65536 > /proc/sys/fs/inotify/max_user_watches
+  # copy: src=files/node/max_user_watches dest=/proc/sys/fs/inotify/max_user_watches force=yes
