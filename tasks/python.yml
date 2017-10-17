@@ -10,8 +10,3 @@
   easy_install:
     name: pip
     state: present
-
-- name: Install Elastic Beanstalk CLI
-  pip:
-    name: awsebcli
-    extra_args: --user --upgrade
