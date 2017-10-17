@@ -51,6 +51,8 @@
 #    - import_tasks: tasks/webkit.yml tags=dev
     - import_tasks: tasks/browsers.yml 
       tags: browsers
+    - import_tasks: tasks/aws.yml
+      tags: python,aws
 #    - import_tasks: tasks/opera.yml tags=apps
 #    - import_tasks: tasks/tor.yml tags=apps
 #    - import_tasks: tasks/pass.yml tags=apps

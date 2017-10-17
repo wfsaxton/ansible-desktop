@@ -1,0 +1,10 @@
+---
+- name: Install AWS CLI
+  pip:
+    name: awscli
+    extra_args: --user --upgrade
+
+- name: Install Elastic Beanstalk CLI
+  pip:
+    name: awsebcli
+    extra_args: --user --upgrade
