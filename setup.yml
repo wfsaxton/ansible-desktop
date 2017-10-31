@@ -83,6 +83,8 @@
 #    - import_tasks: tasks/test.yml tags=test
 #    - import_tasks: tasks/rocketchat.yml
 #    - import_tasks: tasks/databases.yml tags=databases
+    - import_tasks: tasks/mongodb.yml
+      tags: mongodb
 #    - import_tasks: tasks/gpg.yml tags=secops
 #    - import_tasks: tasks/clamav.yml tags=secops
 #    - import_tasks: tasks/keybase.yml tags=secops
