@@ -4,7 +4,25 @@
 #NOTE: Unfortunately, Android SDK can not be automated
 #so all the manual stuff needs to be done after this
 
-- name: install Samsung Galaxy 6 device
+- stat: path=/opt/android-studio
+  register: android_studio_installed
+
+- stat: path=/home/{{user}}/Downloads/android-studio-ide-171.4408382-linux.zip
+  register: android_zip_downloaded
+  when: android_studio_installed.isdir is not defined
+
+- name: Check if Android Studio IDE 171 is downloaded
+  fail:
+    msg: "File not found: /home/{{user}}/Downloads/android-studio-ide-171.4408382-linux.zip"
+  when: android_studio_installed.isdir is not defined and android_zip_downloaded.stat.exists == False
+
+- name: Install Android Studio
+  unarchive:
+    src: /home/{{user}}/Downloads/android-studio-ide-171.4408382-linux.zip
+    dest: /opt/
+  when: android_studio_installed.isdir is not defined and android_zip_downloaded.stat.exists
+
+- name: Install Samsung Galaxy 6 device
   sudo: true
   copy:
     src: files/android/70-android.rules

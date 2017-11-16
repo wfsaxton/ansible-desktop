@@ -37,12 +37,11 @@
 #    - import_tasks: tasks/chruby.yml tags=ruby,lang
 #    - import_tasks: tasks/ruby-install.yml tags=ruby,lang
 #    - import_tasks: tasks/ruby.yml tags=ruby,lang
-    # - import_tasks: tasks/java.yml 
-    #   tags:
-    #     - java,lang
-    # - import_tasks: tasks/android.yml
-    #   tags:
-    #     - mobile
+    - import_tasks: tasks/java.yml 
+      tags:
+        - java
+    - import_tasks: tasks/android.yml
+      tags: android
     - import_tasks: tasks/javascript.yml 
       tags: javascript
     - import_tasks: tasks/node.yml
