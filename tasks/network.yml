@@ -1,5 +1,6 @@
 - name: Network tools
   become: yes
-  apt: name={{item}} state=installed
-  items:
+  apt: name={{packages}} state=installed
+  vars:
+    packages:
     - whois

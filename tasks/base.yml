@@ -14,17 +14,17 @@
 
 - name: Build tools
   become: yes
-  apt: name={{item}} state=installed
-  items:
+  apt: name={{packages}}
+  vars:
+    packages:          
     - libtool
-    -  libtool-bin
-    -  autoconf
-    -  automake
-    -  cmake
-    -  g++
-    -  pkg-config
-    -  unzip
-
+    - libtool-bin
+    - autoconf
+    - automake
+    - cmake
+    - g++
+    - pkg-config
+    - unzip
 
 - name: Install etckeeper
   become: yes

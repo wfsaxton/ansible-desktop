@@ -1,6 +1,7 @@
 - name: installing JDK/JRE 8
-  sudo: true
-  apt: pkg={{ item }}
-  with_items:
+  become: yes
+  apt: pkg={{ packages }}
+  vars:
+    packages:
     - openjdk-8-jdk 
     - openjdk-8-jre

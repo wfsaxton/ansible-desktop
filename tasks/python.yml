@@ -5,8 +5,8 @@
     name: python
     state: installed
 
-- name: Install PIP
-  become: yes
-  easy_install:
-    name: pip
-    state: present
+    #- name: Install PIP
+    #  become: yes
+    #  easy_install:
+    #    name: pip
+    #    state: present

@@ -1,6 +1,7 @@
 - name: Install ngrok (expose localhost over the net)
   sudo: true
-  apt: pkg={{ item }} state=installed
-  with_items:
+  apt: pkg={{ packages }} state=installed
+  vars:
+    packages:
     - ngrok-server
     - ngrok-client

@@ -4,7 +4,8 @@
 - name: Install Vagrant
   become: yes
   apt: 
-    deb: https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb?_ga=2.187737121.88427609.1505220794-377472331.1505220794
+  #    deb: https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb?_ga=2.187737121.88427609.1505220794-377472331.1505220794
+    deb: https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb
     state: installed
 
 - name: Install Vagrant plugins

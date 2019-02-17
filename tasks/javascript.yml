@@ -23,7 +23,7 @@
 
 - name: Symlink nodejs to node
   become: yes
-  file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
+  file: src=/usr/bin/node dest=/usr/bin/nodejs state=link
 
 - name: Install Coffeescript
   apt: name=coffeescript state=installed

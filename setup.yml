@@ -40,8 +40,8 @@
     - import_tasks: tasks/java.yml 
       tags:
         - java
-    - import_tasks: tasks/android.yml
-      tags: android
+#    - import_tasks: tasks/android.yml
+#      tags: android
     - import_tasks: tasks/javascript.yml 
       tags: javascript
     - import_tasks: tasks/node.yml
@@ -50,8 +50,8 @@
 #    - import_tasks: tasks/webkit.yml tags=dev
     - import_tasks: tasks/browsers.yml 
       tags: browsers
-    - import_tasks: tasks/aws.yml
-      tags: python,aws
+      #    - import_tasks: tasks/aws.yml
+      #      tags: python,aws
 #    - import_tasks: tasks/opera.yml tags=apps
 #    - import_tasks: tasks/tor.yml tags=apps
 #    - import_tasks: tasks/pass.yml tags=apps
@@ -74,8 +74,8 @@
       tags: vagrant
     - import_tasks: tasks/virtualbox.yml 
       tags: virtualbox
-    - import_tasks: tasks/heroku.yml
-      tags: heroku
+#   - import_tasks: tasks/heroku.yml
+#     tags: heroku
 #    - import_tasks: tasks/boxes.yml tags=dev
     #- import_tasks: tasks/docker.yml 
     #  tags: docker
@@ -83,8 +83,8 @@
 #    - import_tasks: tasks/test.yml tags=test
 #    - import_tasks: tasks/rocketchat.yml
 #    - import_tasks: tasks/databases.yml tags=databases
-    - import_tasks: tasks/mongodb.yml
-      tags: mongodb
+#    - import_tasks: tasks/mongodb.yml
+#      tags: mongodb
 #    - import_tasks: tasks/gpg.yml tags=secops
 #    - import_tasks: tasks/clamav.yml tags=secops
 #    - import_tasks: tasks/keybase.yml tags=secops
@@ -94,8 +94,8 @@
 #    - import_tasks: tasks/hardware.yml tags=drivers
 #    - import_tasks: tasks/sec.yml tags=apps
 #    - import_tasks: tasks/fitbit.yml tags=apps
-    - import_tasks: tasks/slack.yml 
-      tags: slack
+#    - import_tasks: tasks/slack.yml 
+#      tags: slack
     - import_tasks: tasks/display_home.yml
       tags: display
     - import_tasks: tasks/flux.yml
