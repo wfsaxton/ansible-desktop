@@ -65,6 +65,8 @@
     #     - dev
     - import_tasks: tasks/sublimetext.yml 
       tags: sublimetext
+    - import_tasks: tasks/clip.yml 
+      tags: clip  
 #    - import_tasks: tasks/spacemacs.yml tags=dev
 #    - import_tasks: tasks/tmux.yml tags=dev
     - import_tasks: tasks/git.yml 
