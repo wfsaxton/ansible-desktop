@@ -1,0 +1,6 @@
+---
+- name: Install ncompress
+  become: yes
+  apt: name={{item}} state=present
+  with_items:
+    - ncompress

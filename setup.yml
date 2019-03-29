@@ -9,6 +9,10 @@
     - import_tasks: tasks/base.yml 
       tags:
         - base
+    - import_tasks: tasks/compression.yml
+      tags:
+        - compression
+        - base
     - import_tasks: tasks/network.yml 
       tags: network
 #    - import_tasks: tasks/samba.yml tags=base
@@ -102,3 +106,5 @@
       tags: display
     - import_tasks: tasks/flux.yml
       tags: flux
+    - import_tasks: tasks/vnc.yml
+      tags: vnc
